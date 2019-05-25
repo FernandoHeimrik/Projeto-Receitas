@@ -46,7 +46,10 @@ namespace ProjetoReceitas.DAL
             ctx.SaveChanges();
         }
 
-
+        public static NivelDificuldade buscarNivelDificuldadePorId(int? id)
+        {
+            return ctx.NiveisDificuldades.Find(id);
+        }
 
     }
 }

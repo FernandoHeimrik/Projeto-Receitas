@@ -7,24 +7,37 @@
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                @Html.ActionLink("Receitas", "Index", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                </ul>
-            </div>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary" style="background-color: #2dd293 !important;border-color:#2dd293 !important">
+        <a class="navbar-brand" href="#">Receitas</a>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Inicio <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Receitas</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Area Administrativa</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Sobre</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                
+                <button class="btn btn-secondary my-2 my-sm-0" href="#" type="submit">Login</button>
+            </form>
         </div>
+    </nav>
+
+    <div  id="conteudo" class="container body-content" style="margin-top:30px;margin-bottom:30px">
+        @RenderBody()
     </div>
 
-    <div class="container body-content">
-        @RenderBody()
+    <footer>
         <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
-    </div>
+        <p style="text-align:center">&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+    </footer>
 </body>
 </html>
