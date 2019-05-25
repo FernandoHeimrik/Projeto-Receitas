@@ -41,13 +41,13 @@ namespace ProjetoReceitas.Controllers
 
         public ActionResult Editar(int? id)
         {
-            return View(NivelDificuldadeDAO.buscarNivelDificuldadePorId(id));
+            return View(NivelDificuldadeDAO.BuscarNivelDificuldadePorId(id));
         }
 
         [HttpPost]
         public ActionResult Editar(NivelDificuldade nd)
         {
-            NivelDificuldade aux = NivelDificuldadeDAO.buscarNivelDificuldadePorId(nd.DificuldadeId);
+            NivelDificuldade aux = NivelDificuldadeDAO.BuscarNivelDificuldadePorId(nd.DificuldadeId);
             aux.Nome = nd.Nome;
 
             NivelDificuldadeDAO.AlterarNivelDificuldade(aux);
@@ -56,7 +56,7 @@ namespace ProjetoReceitas.Controllers
 
         public ActionResult Remover(int? id)
         {
-            NivelDificuldadeDAO.RemoverNivelDificuldade(NivelDificuldadeDAO.buscarNivelDificuldadePorId(id));
+            NivelDificuldadeDAO.RemoverNivelDificuldade(NivelDificuldadeDAO.BuscarNivelDificuldadePorId(id));
             return RedirectToAction("Index", "NiveisDificuldades");
         }
 

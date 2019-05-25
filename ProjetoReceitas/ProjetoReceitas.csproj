@@ -144,8 +144,10 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\NiveisDificuldadesController.cs" />
+    <Compile Include="Controllers\TiposRefeicoesController.cs" />
     <Compile Include="DAL\NivelDificuldadeDAO.cs" />
     <Compile Include="DAL\SingletonContext.cs" />
+    <Compile Include="DAL\TipoRefeicaoDAO.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -153,9 +155,14 @@
     <Compile Include="Migrations\201905221936448_NivelDificuldade.Designer.cs">
       <DependentUpon>201905221936448_NivelDificuldade.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201905251945208_addTipoRefeicao.cs" />
+    <Compile Include="Migrations\201905251945208_addTipoRefeicao.Designer.cs">
+      <DependentUpon>201905251945208_addTipoRefeicao.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Context.cs" />
     <Compile Include="Models\NivelDificuldade.cs" />
+    <Compile Include="Models\TipoRefeicao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -170,6 +177,9 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\TiposRefeicoes\Cadastrar.cshtml" />
+    <Content Include="Views\TiposRefeicoes\Editar.cshtml" />
+    <Content Include="Views\TiposRefeicoes\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -183,6 +193,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201905221936448_NivelDificuldade.resx">
       <DependentUpon>201905221936448_NivelDificuldade.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905251945208_addTipoRefeicao.resx">
+      <DependentUpon>201905251945208_addTipoRefeicao.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

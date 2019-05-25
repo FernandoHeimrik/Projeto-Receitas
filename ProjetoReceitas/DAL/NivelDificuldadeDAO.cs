@@ -14,7 +14,7 @@ namespace ProjetoReceitas.DAL
 
         public static bool CadastrarNivelDificuldade(NivelDificuldade nd)
         {
-            if(buscarNivelDificuldadePorNome(nd) == null)
+            if(BuscarNivelDificuldadePorNome(nd) == null)
             {
                 ctx.NiveisDificuldades.Add(nd);
                 ctx.SaveChanges();
@@ -24,7 +24,7 @@ namespace ProjetoReceitas.DAL
             return false;
         }
 
-        public static NivelDificuldade buscarNivelDificuldadePorNome(NivelDificuldade nd)
+        public static NivelDificuldade BuscarNivelDificuldadePorNome(NivelDificuldade nd)
         {
             return ctx.NiveisDificuldades.FirstOrDefault(x => x.Nome.Equals(nd.Nome));
         }
@@ -46,7 +46,7 @@ namespace ProjetoReceitas.DAL
             ctx.SaveChanges();
         }
 
-        public static NivelDificuldade buscarNivelDificuldadePorId(int? id)
+        public static NivelDificuldade BuscarNivelDificuldadePorId(int? id)
         {
             return ctx.NiveisDificuldades.Find(id);
         }

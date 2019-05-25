@@ -1,12 +1,11 @@
 ﻿@model ProjetoReceitas.Models.NivelDificuldade
 
 
-<h2>Cadastrar</h2>
+<h2>Cadastrar Nivel de Dificuldade</h2>
 
 @using (Html.BeginForm("Cadastrar", "NiveisDificuldades", FormMethod.Post))
 {
     <div class="form-horizontal">
-        <h4>Nivel de Dificuldade</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">

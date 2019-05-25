@@ -12,6 +12,7 @@ namespace ProjetoReceitas.Models
 
         public DbSet<NivelDificuldade> NiveisDificuldades { get; set; }
 
+        public DbSet<TipoRefeicao> TiposRefeicoes { get; set; }
 
     }
 }
