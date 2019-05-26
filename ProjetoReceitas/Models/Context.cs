@@ -11,8 +11,11 @@ namespace ProjetoReceitas.Models
         public Context() : base("DbReceitas") { }
 
         public DbSet<NivelDificuldade> NiveisDificuldades { get; set; }
-
         public DbSet<TipoRefeicao> TiposRefeicoes { get; set; }
+        public DbSet<Perfil> Perfis { get; set; }
+        public DbSet<Comentario> Comentarios { get; set; }
+
+
 
     }
 }

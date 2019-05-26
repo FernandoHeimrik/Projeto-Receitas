@@ -50,4 +50,6 @@ D:\Projetos\visual studio 2015\ProjetoReceitas\ProjetoReceitas\obj\Debug\Projeto
 D:\Projetos\visual studio 2015\ProjetoReceitas\ProjetoReceitas\obj\Debug\ProjetoReceitas.Migrations.NivelDificuldade.resources
 D:\Projetos\visual studio 2015\ProjetoReceitas\ProjetoReceitas\obj\Debug\ProjetoReceitas.csproj.GenerateResource.Cache
 D:\Projetos\visual studio 2015\ProjetoReceitas\ProjetoReceitas\obj\Debug\ProjetoReceitas.Migrations.addTipoRefeicao.resources
-D:\Projetos\visual studio 2015\ProjetoReceitas\ProjetoReceitas\obj\Debug\ProjetoReceitas.csprojResolveAssemblyReference.cache
+D:\Projetos\visual studio 2015\ProjetoReceitas\ProjetoReceitas\bin\System.Diagnostics.DiagnosticSource.dll
+D:\Projetos\visual studio 2015\ProjetoReceitas\ProjetoReceitas\bin\Microsoft.AI.PerfCounterCollector.xml
+D:\Projetos\visual studio 2015\ProjetoReceitas\ProjetoReceitas\bin\System.Diagnostics.DiagnosticSource.xml

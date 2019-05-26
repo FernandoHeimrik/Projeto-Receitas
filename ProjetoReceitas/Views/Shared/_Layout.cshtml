@@ -7,36 +7,41 @@
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary" style="background-color: #2dd293 !important;border-color:#2dd293 !important">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <a class="navbar-brand" href="#">Receitas</a>
-        <div class="collapse navbar-collapse">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarColor01">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Inicio</a>
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Receitas</a>
+                    <a class="nav-link" href="#">Lista de Receitas</a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="true">Area Administrativa</a>
-                    <div class="dropdown-menu true">
-                        <a class="dropdown-item" href="../NiveisDificuldades/Index">Niveis de Dificuldade</a>
-                        <a class="dropdown-item" href="../TiposRefeicoes/Index">Tipos de Refeições</a>
-                        <a class="dropdown-item" href="#">Something else here</a>
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="areaadmin">Area Administrativa <span class="caret"></span></a>
+                    <div class="dropdown-menu" aria-labelledby="areaadmin">
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="~/Views/TiposRefeicoes/Index.cshtml">Tipos de Refeições</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="~/Views/NiveisDificuldades/Index.cshtml">Niveis de Dificuldade</a>
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Sobre</a>
+                    <a class="nav-link" href="#">About</a>
                 </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">
-                
+
                 <button class="btn btn-secondary my-2 my-sm-0" href="#" type="submit">Login</button>
             </form>
         </div>
     </nav>
 
-    <div  id="conteudo" class="container body-content" style="margin-top:30px;margin-bottom:30px">
+    <div id="conteudo" class="container body-content" style="margin-top:30px;margin-bottom:30px">
         @RenderBody()
     </div>
 
