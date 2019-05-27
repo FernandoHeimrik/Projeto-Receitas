@@ -183,6 +183,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\NiveisDificuldadesController.cs" />
     <Compile Include="Controllers\TiposRefeicoesController.cs" />
+    <Compile Include="DAL\ComentarioDAO.cs" />
     <Compile Include="DAL\NivelDificuldadeDAO.cs" />
     <Compile Include="DAL\PerfilDAO.cs" />
     <Compile Include="DAL\SingletonContext.cs" />
@@ -197,6 +198,10 @@
     <Compile Include="Migrations\201905251945208_addTipoRefeicao.cs" />
     <Compile Include="Migrations\201905251945208_addTipoRefeicao.Designer.cs">
       <DependentUpon>201905251945208_addTipoRefeicao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905262246520_addPerfilAndComentario.cs" />
+    <Compile Include="Migrations\201905262246520_addPerfilAndComentario.Designer.cs">
+      <DependentUpon>201905262246520_addPerfilAndComentario.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Comentario.cs" />
@@ -244,6 +249,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201905251945208_addTipoRefeicao.resx">
       <DependentUpon>201905251945208_addTipoRefeicao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905262246520_addPerfilAndComentario.resx">
+      <DependentUpon>201905262246520_addPerfilAndComentario.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

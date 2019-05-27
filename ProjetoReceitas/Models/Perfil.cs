@@ -13,13 +13,16 @@ namespace ProjetoReceitas.Models
         [Key]
         public int PerfilId { get; set; }
 
+        [Required(ErrorMessage = "Campo obrigatório!")]
         [Display(Name = "Nome")]
         public string Nome { get; set; }
 
+        [Required(ErrorMessage = "Campo obrigatório!")]
         [Display(Name = "E-mail")]
         [EmailAddress]
         public string Email { get; set; }
 
+        [Required(ErrorMessage = "Campo obrigatório!")]
         [Display(Name = "Senha")]
         [DataType(DataType.Password)]
         public string Senha { get; set; }
