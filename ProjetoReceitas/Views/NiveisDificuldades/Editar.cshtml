@@ -4,8 +4,8 @@
 
 @using (Html.BeginForm("Editar", "NiveisDificuldades", FormMethod.Post))
 {
-    
-    
+    @Html.AntiForgeryToken()
+
     <div class="form-horizontal">
         <h4>Nivel de Dificuldade</h4>
         <hr />

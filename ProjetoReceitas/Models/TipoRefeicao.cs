@@ -14,7 +14,7 @@ namespace ProjetoReceitas.Models
         public int TipoRefeicaoId { get; set; }
 
         [Required(ErrorMessage = "Campo obrigatório!")]
-        [Display(Name = "Nome do Tipo da Refeição")]
+        [Display(Name = "Tipo da Refeição")]
         public string Nome { get; set; }
 
         //public List<Receita> Receitas { get; set; }

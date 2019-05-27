@@ -32,7 +32,7 @@ namespace ProjetoReceitas.Controllers
                 {
                     return RedirectToAction("Index", "TiposRefeicoes");
                 }
-                ModelState.AddModelError("", "Não é possivel cadastrar um Tipo de Refeição com o mesmo nome!");
+                ModelState.AddModelError("", "Tipo de Refeição já cadastrado!");
                 return View(tr);
             }
             return View(tr);

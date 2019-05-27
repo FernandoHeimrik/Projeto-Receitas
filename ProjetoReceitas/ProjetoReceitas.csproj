@@ -47,11 +47,11 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=2.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -181,7 +181,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NiveisDificuldadesController.cs" />
+    <Compile Include="Controllers\PerfisController.cs" />
     <Compile Include="Controllers\TiposRefeicoesController.cs" />
     <Compile Include="DAL\ComentarioDAO.cs" />
     <Compile Include="DAL\NivelDificuldadeDAO.cs" />
@@ -203,9 +205,18 @@
     <Compile Include="Migrations\201905262246520_addPerfilAndComentario.Designer.cs">
       <DependentUpon>201905262246520_addPerfilAndComentario.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201905272059431_mod.cs" />
+    <Compile Include="Migrations\201905272059431_mod.Designer.cs">
+      <DependentUpon>201905272059431_mod.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905272121243_addPerfil.cs" />
+    <Compile Include="Migrations\201905272121243_addPerfil.Designer.cs">
+      <DependentUpon>201905272121243_addPerfil.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Comentario.cs" />
     <Compile Include="Models\Context.cs" />
+    <Compile Include="Models\Enums\TipoPerfil.cs" />
     <Compile Include="Models\NivelDificuldade.cs" />
     <Compile Include="Models\Perfil.cs" />
     <Compile Include="Models\TipoRefeicao.cs" />
@@ -233,6 +244,10 @@
     <Content Include="scripts\popper.js.map" />
     <Content Include="scripts\popper-utils.min.js.map" />
     <Content Include="scripts\popper-utils.js.map" />
+    <Content Include="Views\Perfis\Cadastrar.cshtml" />
+    <Content Include="Views\Perfis\Login.cshtml" />
+    <Content Include="Views\Perfis\Index.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -252,6 +267,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201905262246520_addPerfilAndComentario.resx">
       <DependentUpon>201905262246520_addPerfilAndComentario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905272059431_mod.resx">
+      <DependentUpon>201905272059431_mod.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905272121243_addPerfil.resx">
+      <DependentUpon>201905272121243_addPerfil.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

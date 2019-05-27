@@ -55,3 +55,5 @@ D:\Projetos\visual studio 2015\ProjetoReceitas\ProjetoReceitas\bin\Microsoft.AI.
 D:\Projetos\visual studio 2015\ProjetoReceitas\ProjetoReceitas\bin\System.Diagnostics.DiagnosticSource.xml
 D:\Projetos\visual studio 2015\ProjetoReceitas\ProjetoReceitas\obj\Debug\ProjetoReceitas.csprojResolveAssemblyReference.cache
 D:\Projetos\visual studio 2015\ProjetoReceitas\ProjetoReceitas\obj\Debug\ProjetoReceitas.Migrations.addPerfilAndComentario.resources
+D:\Projetos\visual studio 2015\ProjetoReceitas\ProjetoReceitas\obj\Debug\ProjetoReceitas.Migrations.mod.resources
+D:\Projetos\visual studio 2015\ProjetoReceitas\ProjetoReceitas\obj\Debug\ProjetoReceitas.Migrations.addPerfil.resources

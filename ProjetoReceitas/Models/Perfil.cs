@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProjetoReceitas.Models.Enums;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -10,6 +11,10 @@ namespace ProjetoReceitas.Models
     [Table("Perfis")]
     public class Perfil
     {
+        public Perfil()
+        {
+            DataCriacao = DateTime.Now;
+        }
         [Key]
         public int PerfilId { get; set; }
 
@@ -24,11 +29,13 @@ namespace ProjetoReceitas.Models
 
         [Required(ErrorMessage = "Campo obrigatório!")]
         [Display(Name = "Senha")]
+        [StringLength(100, ErrorMessage = "O {0} deve ter pelo menos {2} caracteres.", MinimumLength = 6)]
         [DataType(DataType.Password)]
         public string Senha { get; set; }
 
         [Display(Name = "Confirmação de senha")]
         [Compare("Senha", ErrorMessage = "Os campos não coincidem!")]
+        [StringLength(100, ErrorMessage = "O {0} deve ter pelo menos {2} caracteres.", MinimumLength = 6)]
         [DataType(DataType.Password)]
         [NotMapped]
         public string ConfirmarSenha { get; set; }
@@ -36,6 +43,9 @@ namespace ProjetoReceitas.Models
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy HH:mm}")]
         [Display(Name = "Data de Criação")]
         public DateTime DataCriacao { get; set; }
+
+        public TipoPerfil Tipo { get; set; }
+
 
         //public List<Receita> Receitas { get; set; }
     }

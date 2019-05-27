@@ -33,18 +33,6 @@ namespace ProjetoReceitas.DAL
             return ctx.Perfis.ToList();
         }
 
-        public static void RemoverPerfilUsuario(Perfil p)
-        {
-            ctx.Perfis.Remove(p);
-            ctx.SaveChanges();
-        }
-
-        public static void AlterarPerfilUsuario(Perfil p)
-        {
-            ctx.Entry(p).State = System.Data.Entity.EntityState.Modified;
-            ctx.SaveChanges();
-        }
-
         public static Perfil BuscarPerfilUsuarioPorEmailSenha(Perfil p)
         {
             return ctx.Perfis.FirstOrDefault(x => x.Email.Equals(p.Email) && x.Senha.Equals(p.Senha));

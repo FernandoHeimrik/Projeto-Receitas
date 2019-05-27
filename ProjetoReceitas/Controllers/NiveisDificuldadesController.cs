@@ -33,7 +33,7 @@ namespace ProjetoReceitas.Controllers
                 {
                     return RedirectToAction("Index", "NiveisDificuldades");
                 }
-                ModelState.AddModelError("", "Não é possivel cadastrar um Nivel de Dificuldade com o mesmo nome!");
+                ModelState.AddModelError("", "Nivel de Dificuldade já cadastrado!");
                 return View(nd);
             }
             return View(nd);
@@ -47,11 +47,15 @@ namespace ProjetoReceitas.Controllers
         [HttpPost]
         public ActionResult Editar(NivelDificuldade nd)
         {
-            NivelDificuldade aux = NivelDificuldadeDAO.BuscarNivelDificuldadePorId(nd.DificuldadeId);
+            if (ModelState.IsValid)
+            {
+                NivelDificuldade aux = NivelDificuldadeDAO.BuscarNivelDificuldadePorId(nd.DificuldadeId);
             aux.Nome = nd.Nome;
 
             NivelDificuldadeDAO.AlterarNivelDificuldade(aux);
             return RedirectToAction("Index", "NiveisDificuldades");
+            }
+            return View(nd);
         }
 
         public ActionResult Remover(int? id)

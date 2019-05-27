@@ -14,7 +14,7 @@ namespace ProjetoReceitas.Models
         public int DificuldadeId { get; set; }
 
         [Required(ErrorMessage = "Campo obrigatório!")]
-        [Display(Name = "Nome do Nivel de Dificuldade")]
+        [Display(Name = "Nivel de Dificuldade")]
         public string Nome { get; set; }
 
         //public List<Receita> Receitas { get; set; }
