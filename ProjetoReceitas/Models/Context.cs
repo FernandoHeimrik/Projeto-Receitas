@@ -14,8 +14,7 @@ namespace ProjetoReceitas.Models
         public DbSet<TipoRefeicao> TiposRefeicoes { get; set; }
         public DbSet<Perfil> Perfis { get; set; }
         public DbSet<Comentario> Comentarios { get; set; }
-
-
+        public DbSet<Receita> Receitas { get; set; }
 
     }
 }

@@ -1,0 +1,42 @@
+﻿@model ProjetoReceitas.Models.Receita
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Receita</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Titulo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Titulo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TempoPreparo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TempoPreparo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Imagem)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Imagem)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ReceitaId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

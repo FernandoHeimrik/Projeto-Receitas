@@ -26,6 +26,6 @@ namespace ProjetoReceitas.Models
         [Display(Name = "Usuario")]
         public Perfil Usuario { get; set; }
 
-        //public Receita Receitas { get; set; }
+        public Receita Receitas { get; set; }
     }
 }

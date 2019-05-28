@@ -184,10 +184,12 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NiveisDificuldadesController.cs" />
     <Compile Include="Controllers\PerfisController.cs" />
+    <Compile Include="Controllers\ReceitasController.cs" />
     <Compile Include="Controllers\TiposRefeicoesController.cs" />
     <Compile Include="DAL\ComentarioDAO.cs" />
     <Compile Include="DAL\NivelDificuldadeDAO.cs" />
     <Compile Include="DAL\PerfilDAO.cs" />
+    <Compile Include="DAL\ReceitaDAO.cs" />
     <Compile Include="DAL\SingletonContext.cs" />
     <Compile Include="DAL\TipoRefeicaoDAO.cs" />
     <Compile Include="Global.asax.cs">
@@ -213,12 +215,17 @@
     <Compile Include="Migrations\201905272121243_addPerfil.Designer.cs">
       <DependentUpon>201905272121243_addPerfil.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201905280046573_addReceita.cs" />
+    <Compile Include="Migrations\201905280046573_addReceita.Designer.cs">
+      <DependentUpon>201905280046573_addReceita.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Comentario.cs" />
     <Compile Include="Models\Context.cs" />
     <Compile Include="Models\Enums\TipoPerfil.cs" />
     <Compile Include="Models\NivelDificuldade.cs" />
     <Compile Include="Models\Perfil.cs" />
+    <Compile Include="Models\Receita.cs" />
     <Compile Include="Models\TipoRefeicao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -248,6 +255,11 @@
     <Content Include="Views\Perfis\Login.cshtml" />
     <Content Include="Views\Perfis\Index.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Receitas\Cadastrar.cshtml" />
+    <Content Include="Views\Receitas\Delete.cshtml" />
+    <Content Include="Views\Receitas\Detalhes.cshtml" />
+    <Content Include="Views\Receitas\Editar.cshtml" />
+    <Content Include="Views\Receitas\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -273,6 +285,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201905272121243_addPerfil.resx">
       <DependentUpon>201905272121243_addPerfil.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905280046573_addReceita.resx">
+      <DependentUpon>201905280046573_addReceita.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

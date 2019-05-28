@@ -29,7 +29,7 @@ namespace ProjetoReceitas.DAL
             return ctx.NiveisDificuldades.FirstOrDefault(x => x.Nome.Equals(nd.Nome));
         }
 
-        public static List<NivelDificuldade> RetornarNiveisDificuldade()
+        public static List<NivelDificuldade> RetornarNiveisDificuldades()
         {
             return ctx.NiveisDificuldades.ToList();
         }

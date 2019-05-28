@@ -16,7 +16,7 @@ namespace ProjetoReceitas.Controllers
         // GET: NiveisDificuldades
         public ActionResult Index()
         {
-            return View(NivelDificuldadeDAO.RetornarNiveisDificuldade());
+            return View(NivelDificuldadeDAO.RetornarNiveisDificuldades());
         }
 
         public ActionResult Cadastrar()

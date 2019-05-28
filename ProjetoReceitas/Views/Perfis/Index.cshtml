@@ -1,14 +1,7 @@
 ﻿@model IEnumerable<ProjetoReceitas.Models.Perfil>
 
-@{
-    ViewBag.Title = "Index";
-}
-
 <h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 <table class="table">
     <tr>
         <th>
@@ -16,9 +9,6 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Email)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Senha)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.DataCriacao)
@@ -35,15 +25,7 @@
             @Html.DisplayFor(modelItem => item.Email)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Senha)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.DataCriacao)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.PerfilId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.PerfilId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.PerfilId })
         </td>
     </tr>
 }

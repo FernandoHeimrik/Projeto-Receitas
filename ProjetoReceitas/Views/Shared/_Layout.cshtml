@@ -9,14 +9,10 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <a class="navbar-brand" href="#">Receitas</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
         <div class="collapse navbar-collapse" id="navbarColor01">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="~/Home/Index">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Lista de Receitas</a>
@@ -25,9 +21,9 @@
                     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="areaadmin">Area Administrativa <span class="caret"></span></a>
                     <div class="dropdown-menu" aria-labelledby="areaadmin">
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="~/Views/TiposRefeicoes/Index.cshtml">Tipos de Refeições</a>
+                        <a class="dropdown-item" href="~/TiposRefeicoes/Index">Tipos de Refeições</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="~/Views/NiveisDificuldades/Index.cshtml">Niveis de Dificuldade</a>
+                        <a class="dropdown-item" href="~/NiveisDificuldades/Index">Niveis de Dificuldade</a>
                     </div>
                 </li>
                 <li class="nav-item">
@@ -35,8 +31,7 @@
                 </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">
-
-                <button class="btn btn-secondary my-2 my-sm-0" href="~/Views/Perfis/Login.cshtml" type="submit">Login</button>
+                <button class="btn btn-secondary my-2 my-sm-0" href="~/Perfis/Login" type="submit">Login</button>
             </form>
         </div>
     </nav>

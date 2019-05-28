@@ -45,8 +45,6 @@ namespace ProjetoReceitas.Models
         public DateTime DataCriacao { get; set; }
 
         public TipoPerfil Tipo { get; set; }
-
-
-        //public List<Receita> Receitas { get; set; }
+        public List<Receita> Receitas { get; set; }
     }
 }
