@@ -35,6 +35,9 @@ namespace ProjetoReceitas.Models
         [Display(Name = "Usuario")]
         public Perfil Usuario { get; set; }
 
-
+        public override string ToString()
+        {
+            return TempoPreparo + " MIN";
+        }
     }
 }

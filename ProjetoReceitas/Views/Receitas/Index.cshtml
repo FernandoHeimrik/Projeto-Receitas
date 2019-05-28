@@ -3,7 +3,7 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Cadastrar Receita", "Cadastrar")
+    @Html.ActionLink("Cadastrar Receita", "Cadastrar","Receitas")
 </p>
 <table class="table">
     <tr>
@@ -39,3 +39,20 @@
 }
 
 </table>
+
+
+@foreach (var item in Model)
+{
+
+    <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
+        <button type="submit" >
+            @Html.ActionLink("Detalhes", "Detalhes", new { id = item.ReceitaId })
+            <div class="card-header">@Html.DisplayFor(modelItem => item.Titulo)</div>
+            <div class="card-body">
+                <h4 class="card-title">@Html.DisplayFor(modelItem => item.Imagem)</h4>
+                <p class="card-text">@Html.DisplayFor(modelItem => item.TempoPreparo) MIN</p>
+            </div>
+        </button>
+    </div>
+}
+
