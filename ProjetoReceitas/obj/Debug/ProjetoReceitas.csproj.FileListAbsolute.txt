@@ -53,7 +53,6 @@ D:\Projetos\visual studio 2015\ProjetoReceitas\ProjetoReceitas\obj\Debug\Projeto
 D:\Projetos\visual studio 2015\ProjetoReceitas\ProjetoReceitas\bin\System.Diagnostics.DiagnosticSource.dll
 D:\Projetos\visual studio 2015\ProjetoReceitas\ProjetoReceitas\bin\Microsoft.AI.PerfCounterCollector.xml
 D:\Projetos\visual studio 2015\ProjetoReceitas\ProjetoReceitas\bin\System.Diagnostics.DiagnosticSource.xml
-D:\Projetos\visual studio 2015\ProjetoReceitas\ProjetoReceitas\obj\Debug\ProjetoReceitas.csprojResolveAssemblyReference.cache
 D:\Projetos\visual studio 2015\ProjetoReceitas\ProjetoReceitas\obj\Debug\ProjetoReceitas.Migrations.addPerfilAndComentario.resources
 D:\Projetos\visual studio 2015\ProjetoReceitas\ProjetoReceitas\obj\Debug\ProjetoReceitas.Migrations.mod.resources
 D:\Projetos\visual studio 2015\ProjetoReceitas\ProjetoReceitas\obj\Debug\ProjetoReceitas.Migrations.addPerfil.resources
@@ -117,3 +116,5 @@ C:\Users\Fernando\Documents\Visual Studio 2015\receita\Projeto-Receitas\ProjetoR
 C:\Users\Fernando\Documents\Visual Studio 2015\receita\Projeto-Receitas\ProjetoReceitas\bin\System.Web.WebPages.Razor.xml
 C:\Users\Fernando\Documents\Visual Studio 2015\receita\Projeto-Receitas\ProjetoReceitas\obj\Debug\ProjetoReceitas.Migrations.addReceita.resources
 D:\Projetos\visual studio 2015\ProjetoReceitas\ProjetoReceitas\obj\Debug\ProjetoReceitas.Migrations.addReceita.resources
+D:\Projetos\visual studio 2015\ProjetoReceitas\ProjetoReceitas\obj\Debug\ProjetoReceitas.Migrations.addIngredienteAndEtapaAndModoDePreparo.resources
+D:\Projetos\visual studio 2015\ProjetoReceitas\ProjetoReceitas\obj\Debug\ProjetoReceitas.Migrations.addIngredienteReceita.resources

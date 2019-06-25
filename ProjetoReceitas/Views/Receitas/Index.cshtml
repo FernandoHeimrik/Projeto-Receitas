@@ -37,13 +37,11 @@
         </td>
     </tr>
 }
-
 </table>
 
 
 @foreach (var item in Model)
 {
-
     <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
         <button type="submit" >
             @Html.ActionLink("Detalhes", "Detalhes", new { id = item.ReceitaId })

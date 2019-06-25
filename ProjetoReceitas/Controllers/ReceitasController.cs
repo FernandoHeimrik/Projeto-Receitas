@@ -29,19 +29,22 @@ namespace ProjetoReceitas.Controllers
         {
             ViewBag.TiposRefeicoes = new SelectList(TipoRefeicaoDAO.RetornarTiposRefeicoes(), "TipoRefeicaoId", "Nome");
             ViewBag.NiveisDificuldades = new SelectList(NivelDificuldadeDAO.RetornarNiveisDificuldades(), "DificuldadeId", "Nome");
+            ViewBag.Ingredientes = new SelectList(IngredienteDAO.RetornarIngredientes(), "IngredienteId", "Nome");
             return View();
         }
 
         [HttpPost]
-        public ActionResult Cadastrar(Receita r, int? NiveisDificuldades, int? TiposRefeicoes)
+        public ActionResult Cadastrar(Receita r, int? NiveisDificuldades, int? TiposRefeicoes, int? Ingredientes )
         {
             ViewBag.TiposRefeicoes = new SelectList(TipoRefeicaoDAO.RetornarTiposRefeicoes(), "TipoRefeicaoId", "Nome");
             ViewBag.NiveisDificuldades = new SelectList(NivelDificuldadeDAO.RetornarNiveisDificuldades(), "DificuldadeId", "Nome");
+            ViewBag.Ingredientes = new SelectList(IngredienteDAO.RetornarIngredientes(), "IngredienteId", "Nome");
 
             if (ModelState.IsValid)
             {
                 r.NivelDificuldade = NivelDificuldadeDAO.BuscarNivelDificuldadePorId(NiveisDificuldades);
                 r.TipoRefeicao = TipoRefeicaoDAO.BuscarTipoRefeicaoPorId(TiposRefeicoes);
+                //r.Ingredientes = IngredienteDAO.BuscarIngredientePorId(Ingredientes);
                 if (ReceitaDAO.CadastrarReceita(r))
                 {
                     return RedirectToAction("Index", "Receitas");
@@ -74,6 +77,14 @@ namespace ProjetoReceitas.Controllers
                 return RedirectToAction("Index", "Receitas");
             }
             return View(r);
+        }
+
+        public ActionResult AdicionarIngrediente(int id)
+        {
+            Ingrediente ingrediente = new Ingrediente();
+            ingrediente.Nome = 
+
+            return RedirectToAction("Cadastrar", "Receitas");
         }
     }
 }

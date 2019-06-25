@@ -187,6 +187,7 @@
     <Compile Include="Controllers\ReceitasController.cs" />
     <Compile Include="Controllers\TiposRefeicoesController.cs" />
     <Compile Include="DAL\ComentarioDAO.cs" />
+    <Compile Include="DAL\IngredienteDAO.cs" />
     <Compile Include="DAL\NivelDificuldadeDAO.cs" />
     <Compile Include="DAL\PerfilDAO.cs" />
     <Compile Include="DAL\ReceitaDAO.cs" />
@@ -219,10 +220,19 @@
     <Compile Include="Migrations\201905280046573_addReceita.Designer.cs">
       <DependentUpon>201905280046573_addReceita.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201906010034272_addIngredienteAndEtapaAndModoDePreparo.cs" />
+    <Compile Include="Migrations\201906010034272_addIngredienteAndEtapaAndModoDePreparo.Designer.cs">
+      <DependentUpon>201906010034272_addIngredienteAndEtapaAndModoDePreparo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201906242343124_addIngredienteReceita.cs" />
+    <Compile Include="Migrations\201906242343124_addIngredienteReceita.Designer.cs">
+      <DependentUpon>201906242343124_addIngredienteReceita.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Comentario.cs" />
     <Compile Include="Models\Context.cs" />
     <Compile Include="Models\Enums\TipoPerfil.cs" />
+    <Compile Include="Models\Ingrediente.cs" />
     <Compile Include="Models\NivelDificuldade.cs" />
     <Compile Include="Models\Perfil.cs" />
     <Compile Include="Models\Receita.cs" />
@@ -288,6 +298,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201905280046573_addReceita.resx">
       <DependentUpon>201905280046573_addReceita.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906010034272_addIngredienteAndEtapaAndModoDePreparo.resx">
+      <DependentUpon>201906010034272_addIngredienteAndEtapaAndModoDePreparo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906242343124_addIngredienteReceita.resx">
+      <DependentUpon>201906242343124_addIngredienteReceita.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

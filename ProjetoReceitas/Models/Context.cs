@@ -15,6 +15,7 @@ namespace ProjetoReceitas.Models
         public DbSet<Perfil> Perfis { get; set; }
         public DbSet<Comentario> Comentarios { get; set; }
         public DbSet<Receita> Receitas { get; set; }
+        public DbSet<Ingrediente> Ingredientes { get; set; }
 
     }
 }
