@@ -29,7 +29,7 @@ namespace ProjetoReceitas.Controllers
         {
             ViewBag.TiposRefeicoes = new SelectList(TipoRefeicaoDAO.RetornarTiposRefeicoes(), "TipoRefeicaoId", "Nome");
             ViewBag.NiveisDificuldades = new SelectList(NivelDificuldadeDAO.RetornarNiveisDificuldades(), "DificuldadeId", "Nome");
-            ViewBag.Ingredientes = new SelectList(IngredienteDAO.RetornarIngredientes(), "IngredienteId", "Nome");
+            ViewBag.Ingredientes = IngredienteDAO.RetornarIngredientes();
             return View();
         }
 
@@ -38,13 +38,13 @@ namespace ProjetoReceitas.Controllers
         {
             ViewBag.TiposRefeicoes = new SelectList(TipoRefeicaoDAO.RetornarTiposRefeicoes(), "TipoRefeicaoId", "Nome");
             ViewBag.NiveisDificuldades = new SelectList(NivelDificuldadeDAO.RetornarNiveisDificuldades(), "DificuldadeId", "Nome");
-            ViewBag.Ingredientes = new SelectList(IngredienteDAO.RetornarIngredientes(), "IngredienteId", "Nome");
+            ViewBag.Ingredientes = IngredienteDAO.RetornarIngredientes();
 
             if (ModelState.IsValid)
             {
                 r.NivelDificuldade = NivelDificuldadeDAO.BuscarNivelDificuldadePorId(NiveisDificuldades);
                 r.TipoRefeicao = TipoRefeicaoDAO.BuscarTipoRefeicaoPorId(TiposRefeicoes);
-                //r.Ingredientes = IngredienteDAO.BuscarIngredientePorId(Ingredientes);
+                r.Ingredientes = IngredienteDAO.RetornarIngredientes();
                 if (ReceitaDAO.CadastrarReceita(r))
                 {
                     return RedirectToAction("Index", "Receitas");
@@ -79,11 +79,16 @@ namespace ProjetoReceitas.Controllers
             return View(r);
         }
 
-        public ActionResult AdicionarIngrediente(int id)
+        public ActionResult AdicionarIngrediente(Ingrediente i)
         {
-            Ingrediente ingrediente = new Ingrediente();
-            ingrediente.Nome = 
+            Ingrediente ingrediente = new Ingrediente
+            {
+                Nome = i.Nome,
+                Quantidade = i.Quantidade,
+                UnidadeMedida = i.UnidadeMedida               
 
+            };
+            IngredienteDAO.CadastrarIngrediente(ingrediente);
             return RedirectToAction("Cadastrar", "Receitas");
         }
     }

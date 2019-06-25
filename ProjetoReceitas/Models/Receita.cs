@@ -35,7 +35,7 @@ namespace ProjetoReceitas.Models
         [Display(Name = "Usuario")]
         public Perfil Usuario { get; set; }
 
-        [Display(Name = "Etapas")]
+        [Display(Name = "Modo de Preparo")]
         public string ModoDePreparo { get; set; }
 
         [Display(Name = "Ingredientes")]

@@ -118,3 +118,5 @@ C:\Users\Fernando\Documents\Visual Studio 2015\receita\Projeto-Receitas\ProjetoR
 D:\Projetos\visual studio 2015\ProjetoReceitas\ProjetoReceitas\obj\Debug\ProjetoReceitas.Migrations.addReceita.resources
 D:\Projetos\visual studio 2015\ProjetoReceitas\ProjetoReceitas\obj\Debug\ProjetoReceitas.Migrations.addIngredienteAndEtapaAndModoDePreparo.resources
 D:\Projetos\visual studio 2015\ProjetoReceitas\ProjetoReceitas\obj\Debug\ProjetoReceitas.Migrations.addIngredienteReceita.resources
+C:\Users\Fernando\Documents\Visual Studio 2015\receita\Projeto-Receitas\ProjetoReceitas\obj\Debug\ProjetoReceitas.Migrations.addIngredienteAndEtapaAndModoDePreparo.resources
+C:\Users\Fernando\Documents\Visual Studio 2015\receita\Projeto-Receitas\ProjetoReceitas\obj\Debug\ProjetoReceitas.Migrations.addIngredienteReceita.resources

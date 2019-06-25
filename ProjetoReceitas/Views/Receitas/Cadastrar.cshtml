@@ -6,7 +6,7 @@
 @using (Html.BeginForm("Cadastrar","Receitas",FormMethod.Post)) 
 {
     @Html.AntiForgeryToken()
-    
+<form>
     <div class="form-horizontal">
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
@@ -36,21 +36,12 @@
             </div>
         </div>
 
-        <div id="Ingredientes" class="form-group">
-            @Html.LabelFor(model => model.Ingredientes, new { @class = "control-label col-sm-2" })
-           <div id="Ingrediente" class="form-group">
-               @Html.LabelFor(model => model.Ingredientes, new { @class = "control-label col-sm-2" })
-           </div>
-          
+        <div class="form-group">
+            @Html.LabelFor(model => model.ModoDePreparo, htmlAttributes: new { @class = "control-label col-md-2" })
+            <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
         </div>
 
-        <div id="ModoDePreparo" class="form-group">
-            @Html.LabelFor(model => model.ModoDePreparo, new { @class = "control-label col-sm-2" })
-            <div id="Ingrediente" class="form-group">
-                @Html.LabelFor(model => model.ModoDePreparo, new { @class = "control-label col-sm-2" })
-            </div>
-
-        </div>
+  
 
         <div class="form-group">
             @Html.LabelFor(model => model.TempoPreparo, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -74,8 +65,12 @@
             </div>
         </div>
     </div>
-}
+    
 
-<div>
-    @Html.ActionLink("Voltar", "Index", "Receitas")
-</div>
+    <div>
+        @Html.ActionLink("Voltar", "Index", "Receitas")
+    </div>
+
+</form>
+}  
+    
