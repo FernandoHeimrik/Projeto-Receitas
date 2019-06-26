@@ -270,6 +270,7 @@
     <Content Include="Views\Receitas\Detalhes.cshtml" />
     <Content Include="Views\Receitas\Editar.cshtml" />
     <Content Include="Views\Receitas\Index.cshtml" />
+    <Content Include="Views\Receitas\addIngrediente.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
