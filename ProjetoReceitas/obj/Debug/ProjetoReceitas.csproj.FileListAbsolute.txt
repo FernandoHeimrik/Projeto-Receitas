@@ -56,12 +56,6 @@ D:\Projetos\visual studio 2015\ProjetoReceitas\ProjetoReceitas\bin\System.Diagno
 D:\Projetos\visual studio 2015\ProjetoReceitas\ProjetoReceitas\obj\Debug\ProjetoReceitas.Migrations.addPerfilAndComentario.resources
 D:\Projetos\visual studio 2015\ProjetoReceitas\ProjetoReceitas\obj\Debug\ProjetoReceitas.Migrations.mod.resources
 D:\Projetos\visual studio 2015\ProjetoReceitas\ProjetoReceitas\obj\Debug\ProjetoReceitas.Migrations.addPerfil.resources
-C:\Users\Fernando\Documents\Visual Studio 2015\receita\Projeto-Receitas\ProjetoReceitas\obj\Debug\ProjetoReceitas.Migrations.NivelDificuldade.resources
-C:\Users\Fernando\Documents\Visual Studio 2015\receita\Projeto-Receitas\ProjetoReceitas\obj\Debug\ProjetoReceitas.Migrations.addTipoRefeicao.resources
-C:\Users\Fernando\Documents\Visual Studio 2015\receita\Projeto-Receitas\ProjetoReceitas\obj\Debug\ProjetoReceitas.Migrations.addPerfilAndComentario.resources
-C:\Users\Fernando\Documents\Visual Studio 2015\receita\Projeto-Receitas\ProjetoReceitas\obj\Debug\ProjetoReceitas.Migrations.mod.resources
-C:\Users\Fernando\Documents\Visual Studio 2015\receita\Projeto-Receitas\ProjetoReceitas\obj\Debug\ProjetoReceitas.Migrations.addPerfil.resources
-C:\Users\Fernando\Documents\Visual Studio 2015\receita\Projeto-Receitas\ProjetoReceitas\obj\Debug\ProjetoReceitas.csproj.GenerateResource.Cache
 C:\Users\Fernando\Documents\Visual Studio 2015\receita\Projeto-Receitas\ProjetoReceitas\obj\Debug\ProjetoReceitas.dll
 C:\Users\Fernando\Documents\Visual Studio 2015\receita\Projeto-Receitas\ProjetoReceitas\obj\Debug\ProjetoReceitas.pdb
 C:\Users\Fernando\Documents\Visual Studio 2015\receita\Projeto-Receitas\ProjetoReceitas\bin\ApplicationInsights.config
@@ -114,10 +108,9 @@ C:\Users\Fernando\Documents\Visual Studio 2015\receita\Projeto-Receitas\ProjetoR
 C:\Users\Fernando\Documents\Visual Studio 2015\receita\Projeto-Receitas\ProjetoReceitas\bin\System.Web.WebPages.xml
 C:\Users\Fernando\Documents\Visual Studio 2015\receita\Projeto-Receitas\ProjetoReceitas\bin\System.Web.WebPages.Deployment.xml
 C:\Users\Fernando\Documents\Visual Studio 2015\receita\Projeto-Receitas\ProjetoReceitas\bin\System.Web.WebPages.Razor.xml
-C:\Users\Fernando\Documents\Visual Studio 2015\receita\Projeto-Receitas\ProjetoReceitas\obj\Debug\ProjetoReceitas.Migrations.addReceita.resources
 D:\Projetos\visual studio 2015\ProjetoReceitas\ProjetoReceitas\obj\Debug\ProjetoReceitas.Migrations.addReceita.resources
 D:\Projetos\visual studio 2015\ProjetoReceitas\ProjetoReceitas\obj\Debug\ProjetoReceitas.Migrations.addIngredienteAndEtapaAndModoDePreparo.resources
 D:\Projetos\visual studio 2015\ProjetoReceitas\ProjetoReceitas\obj\Debug\ProjetoReceitas.Migrations.addIngredienteReceita.resources
-C:\Users\Fernando\Documents\Visual Studio 2015\receita\Projeto-Receitas\ProjetoReceitas\obj\Debug\ProjetoReceitas.Migrations.addIngredienteAndEtapaAndModoDePreparo.resources
-C:\Users\Fernando\Documents\Visual Studio 2015\receita\Projeto-Receitas\ProjetoReceitas\obj\Debug\ProjetoReceitas.Migrations.addIngredienteReceita.resources
+C:\Users\Fernando\Documents\Visual Studio 2015\receita\Projeto-Receitas\ProjetoReceitas\obj\Debug\ProjetoReceitas.Migrations.inicial.resources
+C:\Users\Fernando\Documents\Visual Studio 2015\receita\Projeto-Receitas\ProjetoReceitas\obj\Debug\ProjetoReceitas.csproj.GenerateResource.Cache
 C:\Users\Fernando\Documents\Visual Studio 2015\receita\Projeto-Receitas\ProjetoReceitas\obj\Debug\ProjetoReceitas.csprojResolveAssemblyReference.cache

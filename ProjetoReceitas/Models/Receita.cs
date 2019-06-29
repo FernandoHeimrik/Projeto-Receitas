@@ -39,6 +39,8 @@ namespace ProjetoReceitas.Models
         public string ModoDePreparo { get; set; }
 
         [Display(Name = "Ingredientes")]
-        public List<Ingrediente> Ingredientes { get; set; }
+        public List<ItemIngredienteReceita> Ingredientes { get; set; }
+
+        public string SessaoReceitaId { get; set; }
     }
 }

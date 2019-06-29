@@ -1,5 +1,8 @@
-﻿@model ProjetoReceitas.Models.Receita
-
+﻿@using ProjetoReceitas.Models
+@model ProjetoReceitas.Models.Receita
+@{
+    List<ItemIngredienteReceita> ingredientes = ViewBag.ItemIngrediente;
+}
 <h2>Detalhes</h2>
 
 <div>
@@ -12,6 +15,38 @@
         <dd>
             @Html.DisplayFor(model => model.Titulo)
         </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TipoRefeicao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TipoRefeicao.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NivelDificuldade)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NivelDificuldade.Nome)
+        </dd>
+
+        <dt>
+            Quantidade
+            Unidade de Medida
+            Ingrediente            
+        </dt>
+        @foreach (ItemIngredienteReceita i in ingredientes)
+        {
+            <dd>
+                @i.Quantidade
+                @i.UnidadeMedida
+                @i.Ingrediente.Nome
+            </dd>
+           
+        }
+        
 
         <dt>
             @Html.DisplayNameFor(model => model.TempoPreparo)

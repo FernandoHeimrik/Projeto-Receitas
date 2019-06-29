@@ -188,6 +188,7 @@
     <Compile Include="Controllers\TiposRefeicoesController.cs" />
     <Compile Include="DAL\ComentarioDAO.cs" />
     <Compile Include="DAL\IngredienteDAO.cs" />
+    <Compile Include="DAL\ItemIngredienteReceitaDAO.cs" />
     <Compile Include="DAL\NivelDificuldadeDAO.cs" />
     <Compile Include="DAL\PerfilDAO.cs" />
     <Compile Include="DAL\ReceitaDAO.cs" />
@@ -196,48 +197,22 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201905221936448_NivelDificuldade.cs" />
-    <Compile Include="Migrations\201905221936448_NivelDificuldade.Designer.cs">
-      <DependentUpon>201905221936448_NivelDificuldade.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201905251945208_addTipoRefeicao.cs" />
-    <Compile Include="Migrations\201905251945208_addTipoRefeicao.Designer.cs">
-      <DependentUpon>201905251945208_addTipoRefeicao.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201905262246520_addPerfilAndComentario.cs" />
-    <Compile Include="Migrations\201905262246520_addPerfilAndComentario.Designer.cs">
-      <DependentUpon>201905262246520_addPerfilAndComentario.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201905272059431_mod.cs" />
-    <Compile Include="Migrations\201905272059431_mod.Designer.cs">
-      <DependentUpon>201905272059431_mod.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201905272121243_addPerfil.cs" />
-    <Compile Include="Migrations\201905272121243_addPerfil.Designer.cs">
-      <DependentUpon>201905272121243_addPerfil.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201905280046573_addReceita.cs" />
-    <Compile Include="Migrations\201905280046573_addReceita.Designer.cs">
-      <DependentUpon>201905280046573_addReceita.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201906010034272_addIngredienteAndEtapaAndModoDePreparo.cs" />
-    <Compile Include="Migrations\201906010034272_addIngredienteAndEtapaAndModoDePreparo.Designer.cs">
-      <DependentUpon>201906010034272_addIngredienteAndEtapaAndModoDePreparo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201906242343124_addIngredienteReceita.cs" />
-    <Compile Include="Migrations\201906242343124_addIngredienteReceita.Designer.cs">
-      <DependentUpon>201906242343124_addIngredienteReceita.cs</DependentUpon>
+    <Compile Include="Migrations\201906290308211_inicial.cs" />
+    <Compile Include="Migrations\201906290308211_inicial.Designer.cs">
+      <DependentUpon>201906290308211_inicial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Comentario.cs" />
     <Compile Include="Models\Context.cs" />
     <Compile Include="Models\Enums\TipoPerfil.cs" />
     <Compile Include="Models\Ingrediente.cs" />
+    <Compile Include="Models\ItemIngredienteReceita.cs" />
     <Compile Include="Models\NivelDificuldade.cs" />
     <Compile Include="Models\Perfil.cs" />
     <Compile Include="Models\Receita.cs" />
     <Compile Include="Models\TipoRefeicao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utils\Sessao.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
@@ -270,7 +245,7 @@
     <Content Include="Views\Receitas\Detalhes.cshtml" />
     <Content Include="Views\Receitas\Editar.cshtml" />
     <Content Include="Views\Receitas\Index.cshtml" />
-    <Content Include="Views\Receitas\addIngrediente.cshtml" />
+    <Content Include="Views\Receitas\AdicionarIngredientes.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -282,36 +257,15 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201905221936448_NivelDificuldade.resx">
-      <DependentUpon>201905221936448_NivelDificuldade.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201905251945208_addTipoRefeicao.resx">
-      <DependentUpon>201905251945208_addTipoRefeicao.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201905262246520_addPerfilAndComentario.resx">
-      <DependentUpon>201905262246520_addPerfilAndComentario.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201905272059431_mod.resx">
-      <DependentUpon>201905272059431_mod.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201905272121243_addPerfil.resx">
-      <DependentUpon>201905272121243_addPerfil.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201905280046573_addReceita.resx">
-      <DependentUpon>201905280046573_addReceita.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201906010034272_addIngredienteAndEtapaAndModoDePreparo.resx">
-      <DependentUpon>201906010034272_addIngredienteAndEtapaAndModoDePreparo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201906242343124_addIngredienteReceita.resx">
-      <DependentUpon>201906242343124_addIngredienteReceita.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="scripts\index.d.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201906290308211_inicial.resx">
+      <DependentUpon>201906290308211_inicial.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

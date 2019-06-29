@@ -17,6 +17,6 @@ namespace ProjetoReceitas.Models
         [Display(Name = "Nivel de Dificuldade")]
         public string Nome { get; set; }
 
-        public List<Receita> Receitas { get; set; }
+        //public List<Receita> Receitas { get; set; }
     }
 }

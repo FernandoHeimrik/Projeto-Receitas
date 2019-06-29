@@ -16,6 +16,8 @@ namespace ProjetoReceitas.Models
         public DbSet<Comentario> Comentarios { get; set; }
         public DbSet<Receita> Receitas { get; set; }
         public DbSet<Ingrediente> Ingredientes { get; set; }
+        public DbSet<ItemIngredienteReceita> ItensIngrediente { get; set; }
+
 
     }
 }

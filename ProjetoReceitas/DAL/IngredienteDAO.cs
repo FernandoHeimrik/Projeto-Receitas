@@ -1,4 +1,5 @@
 ﻿using ProjetoReceitas.Models;
+using ProjetoReceitas.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,15 +11,10 @@ namespace ProjetoReceitas.DAL
     {
         public static Context ctx = SingletonContext.GetInstance();
 
-        public static bool CadastrarIngrediente(Ingrediente i)
+        public static void CadastrarIngrediente(Ingrediente i)
         {
-            if(BuscarIngredientePorNome(i) == null)
-            {
-                ctx.Ingredientes.Add(i);
-                ctx.SaveChanges();
-                return true;
-            }
-            return false;
+            ctx.Ingredientes.Add(i);
+            ctx.SaveChanges();
         }
 
         private static Ingrediente BuscarIngredientePorNome(Ingrediente i)

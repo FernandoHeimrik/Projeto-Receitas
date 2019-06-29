@@ -17,7 +17,7 @@ namespace ProjetoReceitas.Models
         [Display(Name = "Tipo da Refeição")]
         public string Nome { get; set; }
 
-        public List<Receita> Receitas { get; set; }
+        //public List<Receita> Receitas { get; set; }
 
     }
 }

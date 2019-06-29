@@ -17,12 +17,6 @@ namespace ProjetoReceitas.Models
         [Display(Name = "Ingrediente")]
         public string Nome { get; set; }
 
-        [Required(ErrorMessage = "Campo obrigatório!")]
-        [Display(Name = "Quantidade")]
-        public int Quantidade { get; set; }
-
-        [Required(ErrorMessage = "Campo obrigatório!")]
-        [Display(Name = "Unidade de Medida")]
-        public string UnidadeMedida { get; set; }
+       
     }
 }

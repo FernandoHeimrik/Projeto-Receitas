@@ -1,6 +1,7 @@
 ﻿@model ProjetoReceitas.Models.Receita
-
-
+@{
+    
+}
 <h2>Criar Receita</h2>
 
 @using (Html.BeginForm("Cadastrar", "Receitas", FormMethod.Post))
@@ -36,19 +37,47 @@
                 </div>
             </div>
 
-            <div id="modal" class="modal">
-                <button class="btn btn-default ingrediente"></button>
-                <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Adicionar Ingrediente</button>
+            <div id="Ingredientes" class="form-group">
+                @if (Model != null && Model.Ingredientes != null)
+                {
+                    <table class="table">
+                        <tr>
+                            <th>
+                                Quantidade
+                            </th>
+                            <th>
+                                Unidade de Medida
+                            </th>
+                            <th>
+                                Ingrediente
+                            </th>
+                            <th></th>
+                        </tr>
+
+                        @foreach (var item in Model.Ingredientes)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Quantidade)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.UnidadeMedida)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Ingrediente)
+                                </td>
+                            </tr>
+                        }
+                    </table>
+                }
             </div>
-
-
 
             <div class="form-group">
                 @Html.LabelFor(model => model.ModoDePreparo, htmlAttributes: new { @class = "control-label col-md-2" })
-                <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
+                <div class="col-md-10">
+                    @Html.TextAreaFor(model => model.ModoDePreparo, 3, 12, htmlAttributes: new { @class = "form-control" })
+                </div>
             </div>
-
-
 
             <div class="form-group">
                 @Html.LabelFor(model => model.TempoPreparo, htmlAttributes: new { @class = "control-label col-md-2" })
