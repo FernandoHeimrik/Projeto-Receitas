@@ -27,7 +27,7 @@ namespace ProjetoReceitas.DAL
         public static List<ItemIngredienteReceita> RetornarItemIngrediente()
         {
             string itemReceitaId = Sessao.RetornarItemReceitaId();
-            return ctx.ItensIngrediente.ToList();
+            return ctx.ItensIngrediente.Include("Ingrediente").Where(x => x.SessaoReceitaId.Equals(itemReceitaId)).ToList();
         }
 
         public static ItemIngredienteReceita BuscarItemIngredientePorId(int? id)

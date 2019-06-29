@@ -17,6 +17,5 @@ namespace ProjetoReceitas.Models
         [Display(Name = "Ingrediente")]
         public string Nome { get; set; }
 
-       
     }
 }

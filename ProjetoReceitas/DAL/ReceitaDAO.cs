@@ -28,7 +28,7 @@ namespace ProjetoReceitas.DAL
 
         public static List<Receita> RetornarReceitas()
         {
-            return ctx.Receitas.ToList();
+            return ctx.Receitas.Include("Ingredientes").ToList();
         }
 
         public static void AlterarReceita(Receita r)

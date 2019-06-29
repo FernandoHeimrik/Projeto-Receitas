@@ -16,12 +16,10 @@ namespace ProjetoReceitas.Models
         [Display(Name = "Ingrediente")]
         public Ingrediente Ingrediente { get; set; }
 
-        [Required(ErrorMessage = "Campo obrigatório!")]
-        [Display(Name = "Quantidade")]
+        
         public int Quantidade { get; set; }
 
-        [Required(ErrorMessage = "Campo obrigatório!")]
-        [Display(Name = "Unidade de Medida")]
+       
         public string UnidadeMedida { get; set; }
 
         public string SessaoReceitaId { get; set; }

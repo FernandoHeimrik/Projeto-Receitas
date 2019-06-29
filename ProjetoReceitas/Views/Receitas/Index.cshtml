@@ -1,9 +1,12 @@
 ﻿@model IEnumerable<ProjetoReceitas.Models.Receita>
-
+@{ 
+    //List<Ingrediente> ingredientes = ViewBag.Ingredientes;
+}
 <h2>Index</h2>
 
 <p>
-    <button type="button" onclick="location.href='@Url.Action("AdicionarIngredientes","Receitas")'" class="btn btn-secondary my-2 my-sm-0">Cadastrar Receita</button>
+    @*<button type="button" onclick="location.href='@Url.Action("AdicionarIngredientes","Receitas")'" class="btn btn-secondary my-2 my-sm-0">Cadastrar Receita</button>*@
+    @Html.ActionLink("Cadastrar Receita", "AdicionarIngredientes", "Receitas", new { @class = "btn btn-secondary my-2 my-sm-0" });
 </p>
 <table class="table">
     <tr>

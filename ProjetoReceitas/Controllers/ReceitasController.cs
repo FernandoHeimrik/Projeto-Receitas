@@ -22,7 +22,6 @@ namespace ProjetoReceitas.Controllers
 
         public ActionResult Detalhes(int? id)
         {
-            ViewBag.Ingredientes = IngredienteDAO.RetornarIngredientes();
             ViewBag.ItemIngrediente = ItemIngredienteReceitaDAO.RetornarItemIngrediente();
             Receita r = ReceitaDAO.BuscarReceitaPorId(id);
             return View(r);
@@ -33,18 +32,17 @@ namespace ProjetoReceitas.Controllers
             ViewBag.TiposRefeicoes = new SelectList(TipoRefeicaoDAO.RetornarTiposRefeicoes(), "TipoRefeicaoId", "Nome");
             ViewBag.NiveisDificuldades = new SelectList(NivelDificuldadeDAO.RetornarNiveisDificuldades(), "DificuldadeId", "Nome");
             ViewBag.ItemIngrediente = ItemIngredienteReceitaDAO.RetornarItemIngrediente();
-            ViewBag.Ingredientes = IngredienteDAO.RetornarIngredientes();
   
             return View();
         }
 
         [HttpPost]
-        public ActionResult Cadastrar(Receita r, int? NiveisDificuldades, int? TiposRefeicoes, int? Ingredientes)
+        public ActionResult Cadastrar(Receita r, int? NiveisDificuldades, int? TiposRefeicoes, ItemIngredienteReceita Ingredientes)
         {
             ViewBag.TiposRefeicoes = new SelectList(TipoRefeicaoDAO.RetornarTiposRefeicoes(), "TipoRefeicaoId", "Nome");
             ViewBag.NiveisDificuldades = new SelectList(NivelDificuldadeDAO.RetornarNiveisDificuldades(), "DificuldadeId", "Nome");
             ViewBag.ItemIngrediente = ItemIngredienteReceitaDAO.RetornarItemIngrediente();
-            ViewBag.Ingredientes = IngredienteDAO.RetornarIngredientes();
+            
             if (ModelState.IsValid)
             {
                 r.SessaoReceitaId = Sessao.RetornarItemReceitaId();
@@ -89,12 +87,17 @@ namespace ProjetoReceitas.Controllers
 
         public ActionResult AdicionarIngredientes()
         {
+            ViewBag.Ingredientes = new SelectList(IngredienteDAO.RetornarIngredientes(), "IngredienteId", "Nome");
             return View();
         }
 
         [HttpPost]
-        public ActionResult AdicionarIngrediente(ItemIngredienteReceita itemIngrediente)
+        public ActionResult AdicionarIngredientes(ItemIngredienteReceita itemIngrediente, int? Ingrediente)
         {
+
+            ViewBag.Ingredientes = new SelectList(IngredienteDAO.RetornarIngredientes(), "IngredienteId", "Nome");
+
+            itemIngrediente.Ingrediente = IngredienteDAO.BuscarIngredientePorId(Ingrediente);
             itemIngrediente.SessaoReceitaId = Sessao.RetornarItemReceitaId();
             ItemIngredienteReceitaDAO.CadastrarItemIngrediente(itemIngrediente);
 
