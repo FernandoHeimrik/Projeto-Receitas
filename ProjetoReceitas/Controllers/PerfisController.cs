@@ -26,11 +26,9 @@ namespace ProjetoReceitas.Controllers
             return View();
         }
 
-        // POST: Perfis/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+
         [HttpPost]
-        public ActionResult Cadastrar( Perfil p)
+        public ActionResult Cadastrar(Perfil p)
         {
             if (ModelState.IsValid)
             {
@@ -50,23 +48,22 @@ namespace ProjetoReceitas.Controllers
         }
 
         [HttpPost]
-        public ActionResult Login(Perfil p, bool chkConectado)
+        public ActionResult Login(Perfil p)
         {
-            
-                if(PerfilDAO.BuscarPerfilUsuarioPorEmailSenha(p) != null)
-                {
-                    FormsAuthentication.SetAuthCookie(p.Email, chkConectado);
-                    return RedirectToAction("Index", "Home");
-                }else
-                {
-                    ModelState.AddModelError("", "E-mail ou senha inválido!");
-                    return View();
-                }
-          ;
+            p = PerfilDAO.BuscarPerfilUsuarioPorEmailSenha(p);
+            if (p != null)
+            {
+                FormsAuthentication.SetAuthCookie(p.Email, true);
+                return RedirectToAction("Index", "Home");
+            }
+            ModelState.AddModelError("", "E-mail ou senha inválido!");
+            return View(p);
         }
 
-
-       
-        
+        public ActionResult Logout()
+        {
+            FormsAuthentication.SignOut();
+            return RedirectToAction("Index", "Home");
+        }
     }
 }

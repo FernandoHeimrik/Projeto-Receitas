@@ -52,7 +52,7 @@ namespace ProjetoReceitas.Controllers
                 IngredienteDAO.CadastrarIngrediente(ingrediente);
                 return RedirectToAction("Cadastrar","Ingredientes");
             }
-
+            ModelState.AddModelError("", "Ingrediente já cadastrado!");
             return View(ingrediente);
         }
 

@@ -11,10 +11,15 @@ namespace ProjetoReceitas.DAL
     {
         public static Context ctx = SingletonContext.GetInstance();
 
-        public static void CadastrarIngrediente(Ingrediente i)
+        public static bool CadastrarIngrediente(Ingrediente i)
         {
-            ctx.Ingredientes.Add(i);
-            ctx.SaveChanges();
+            if(BuscarIngredientePorNome(i) != null)
+            {
+                ctx.Ingredientes.Add(i);
+                ctx.SaveChanges();
+                return true;
+            }
+            return false;
         }
 
         private static Ingrediente BuscarIngredientePorNome(Ingrediente i)

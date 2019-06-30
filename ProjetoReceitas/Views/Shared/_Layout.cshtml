@@ -11,14 +11,11 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <a class="navbar-brand" href="#">Receitas</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+        <a class="navbar-brand" href="~/Home/Index">Receitas</a>
         <div class="collapse navbar-collapse" id="navbarColor01">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="~/Home/Index">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="~/Ingredientes/Cadastrar">Ingredientes <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="~/Receitas/Index">Lista de Receitas</a>
@@ -35,10 +32,22 @@
                     <a class="nav-link" href="#">About</a>
                 </li>
             </ul>
-            <ul class="nav navbar-nav ml-auto">
-                <li class="nav-item">
-                    <button type="button" onclick="location.href='@Url.Action("Login", "Perfis")'" class= "btn btn-secondary my-2 my-sm-0">Login</button>
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    @Html.ActionLink("Usuario","Login","Perfis")
                 </li>
+                @if (Request.IsAuthenticated)
+                {
+                    <li>
+                        @Html.ActionLink("Logout", "Logout", "Perfis")
+                    </li>
+                }
+                else
+                {
+                    <li>
+                        @Html.ActionLink("Login", "Login", "Perfis")
+                    </li>
+                }
             </ul>
         </div>
     </nav>
@@ -53,4 +62,4 @@
     </footer>
 </body>
 </html>
-<--!>@RenderSection("scripts", required: false)</--!>
+@*@RenderSection("scripts", required: false)*@
