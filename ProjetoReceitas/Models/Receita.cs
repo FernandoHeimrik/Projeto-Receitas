@@ -42,5 +42,6 @@ namespace ProjetoReceitas.Models
         public List<ItemIngredienteReceita> Ingredientes { get; set; }
 
         public string SessaoReceitaId { get; set; }
+
     }
 }

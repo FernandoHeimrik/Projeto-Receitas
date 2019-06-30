@@ -2,7 +2,6 @@
 
 @{
     ViewBag.Title = "AdicionarIngredientes";
-
 }
 
 
@@ -22,7 +21,7 @@
             </div>
 
             <div id="Ingrediente" class="form-group">
-                @Html.LabelFor(model => model.Ingrediente.IngredienteId, new { @class = "control-label col-sm-2" })
+                @Html.LabelFor(model => model.Ingrediente, new { @class = "control-label col-sm-2" })
                 <div class="col-sm-10">
                     @Html.DropDownList("Ingredientes", null,
                     " -- SELECIONE -- ",
@@ -41,7 +40,6 @@
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
                     <input type="submit" value="Adicionar" class="btn btn-default" />
-                    
                 </div>
             </div>
         </fieldset>

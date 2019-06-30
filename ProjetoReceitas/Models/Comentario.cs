@@ -24,8 +24,8 @@ namespace ProjetoReceitas.Models
         public DateTime DataCriacao { get; set; }
 
         [Display(Name = "Usuario")]
-        public Perfil Usuario { get; set; }
+        public string Usuario { get; set; }
 
-        public Receita Receitas { get; set; }
+        public Receita Receita { get; set; }
     }
 }

@@ -16,6 +16,10 @@ namespace ProjetoReceitas.DAL
             ctx.SaveChanges();
         }
 
-  
+        public static List<Comentario> BuscarComentariosPorReceita(int? idReceita)
+        {
+            return ctx.Comentarios.Where(x => x.Receita.ReceitaId == idReceita).ToList();
+        }
+
     }
 }

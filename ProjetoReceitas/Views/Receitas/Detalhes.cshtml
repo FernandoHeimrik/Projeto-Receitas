@@ -33,19 +33,11 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Ingredientes)
-        </dt> 
-
-        <dd>
-            @Html.DisplayFor(model => model.Ingredientes)
-        </dd>
-
-        <dt>
             Quantidade
             Unidade de Medida
             Ingrediente
             
-            @foreach (ItemIngredienteReceita i in ingredientes)
+            @foreach (var  i in Model.Ingredientes)
             {
                 
                     @i.Quantidade

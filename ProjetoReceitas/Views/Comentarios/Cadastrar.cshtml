@@ -1,0 +1,78 @@
+﻿@model ProjetoReceitas.Models.Comentario
+
+@{
+    ViewBag.Title = "Comentario";
+    ProjetoReceitas.Models.Receita receita = ViewBag.Receita;
+    List<ProjetoReceitas.Models.Comentario> comentarios = ViewBag.Comentarios;
+}
+
+
+<div id="receita">
+    <div class="panel panel-primary">
+        <div class="painel-heading">
+            Titulo: @receita.Titulo
+        </div>
+        <div class="panel-body">
+            <div>Nivel de Dificuldade: @receita.NivelDificuldade.Nome</div>
+            <div>Tipo de Refeição: @receita.TipoRefeicao.Nome</div>
+            <div>Tempo de Preparo: @receita.TempoPreparo MIN</div>
+            <div>Modo de Preparo: @receita.ModoDePreparo</div>
+            <div>Ingredientes: </div>
+            <div>
+                @foreach (var item in receita.Ingredientes)
+            {
+                <div>Quantidade: @item.Quantidade</div>
+                <div>Unidade de Medida: @item.UnidadeMedida</div>
+                <div>Ingrediente: @item.Ingrediente.Nome</div>     
+            }
+            </div>
+    </div>
+    <div class="panel-footer">
+        By:@receita.Usuario.Nome
+    </div>
+</div>
+</div>
+<div id="comentarios">
+    <table class="table table-hover table-striped">
+        @foreach (var item in comentarios)
+        {
+            <tr>
+                <td>
+                    @item.Usuario
+                </td>
+                <td>
+                    @item.Descricao
+                </td>
+            </tr>
+        }
+    </table>
+</div>
+<div id="comentario">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <h4>Comentario</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.Descricao, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Descricao, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Descricao, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Salvar Comentario" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+<div>
+    @Html.ActionLink("Voltar", "Index", "Receitas", new { id = receita.ReceitaId })
+</div>

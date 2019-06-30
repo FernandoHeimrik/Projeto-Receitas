@@ -198,6 +198,7 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\ComentariosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\IngredientesController.cs" />
     <Compile Include="Controllers\NiveisDificuldadesController.cs" />
@@ -205,6 +206,7 @@
     <Compile Include="Controllers\ReceitasAPIController.cs" />
     <Compile Include="Controllers\ReceitasController.cs" />
     <Compile Include="Controllers\TiposRefeicoesController.cs" />
+    <Compile Include="Controllers\AdcIngredienteController.cs" />
     <Compile Include="DAL\ComentarioDAO.cs" />
     <Compile Include="DAL\IngredienteDAO.cs" />
     <Compile Include="DAL\ItemIngredienteReceitaDAO.cs" />
@@ -215,34 +217,6 @@
     <Compile Include="DAL\TipoRefeicaoDAO.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201906290308211_inicial.cs" />
-    <Compile Include="Migrations\201906290308211_inicial.Designer.cs">
-      <DependentUpon>201906290308211_inicial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201906291829530_addIngrediente.cs" />
-    <Compile Include="Migrations\201906291829530_addIngrediente.Designer.cs">
-      <DependentUpon>201906291829530_addIngrediente.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201906291835425_addIngrediente2.cs" />
-    <Compile Include="Migrations\201906291835425_addIngrediente2.Designer.cs">
-      <DependentUpon>201906291835425_addIngrediente2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201906291910073_addIngrediente3.cs" />
-    <Compile Include="Migrations\201906291910073_addIngrediente3.Designer.cs">
-      <DependentUpon>201906291910073_addIngrediente3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201906291910435_addIngrediente4.cs" />
-    <Compile Include="Migrations\201906291910435_addIngrediente4.Designer.cs">
-      <DependentUpon>201906291910435_addIngrediente4.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201906291943451_addIngrediente5.cs" />
-    <Compile Include="Migrations\201906291943451_addIngrediente5.Designer.cs">
-      <DependentUpon>201906291943451_addIngrediente5.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201906292001319_addIngrediente6.cs" />
-    <Compile Include="Migrations\201906292001319_addIngrediente6.Designer.cs">
-      <DependentUpon>201906292001319_addIngrediente6.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Comentario.cs" />
@@ -292,6 +266,9 @@
     <Content Include="Views\Ingredientes\Cadastrar.cshtml" />
     <Content Include="Views\Ingredientes\Delete.cshtml" />
     <Content Include="Views\Ingredientes\Editar.cshtml" />
+    <Content Include="Views\Comentarios\Cadastrar.cshtml" />
+    <Content Include="Views\Comentarios\Edit.cshtml" />
+    <Content Include="Views\AdcIngrediente\AdicionarIngredientes.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -307,29 +284,6 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="scripts\index.d.ts" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201906290308211_inicial.resx">
-      <DependentUpon>201906290308211_inicial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201906291829530_addIngrediente.resx">
-      <DependentUpon>201906291829530_addIngrediente.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201906291835425_addIngrediente2.resx">
-      <DependentUpon>201906291835425_addIngrediente2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201906291910073_addIngrediente3.resx">
-      <DependentUpon>201906291910073_addIngrediente3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201906291910435_addIngrediente4.resx">
-      <DependentUpon>201906291910435_addIngrediente4.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201906291943451_addIngrediente5.resx">
-      <DependentUpon>201906291943451_addIngrediente5.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201906292001319_addIngrediente6.resx">
-      <DependentUpon>201906292001319_addIngrediente6.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

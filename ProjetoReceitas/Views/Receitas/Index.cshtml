@@ -1,12 +1,13 @@
 ﻿@model IEnumerable<ProjetoReceitas.Models.Receita>
-@{ 
+@{
     //List<Ingrediente> ingredientes = ViewBag.Ingredientes;
+    ProjetoReceitas.Models.Ingrediente ingrediente = ViewBag.Ingrediente;
 }
 <h2>Index</h2>
 
 <p>
     @*<button type="button" onclick="location.href='@Url.Action("AdicionarIngredientes","Receitas")'" class="btn btn-secondary my-2 my-sm-0">Cadastrar Receita</button>*@
-    @Html.ActionLink("Cadastrar Receita", "AdicionarIngredientes", "Receitas", new { @class = "btn btn-secondary my-2 my-sm-0" })
+    @Html.ActionLink("Cadastrar Receita", "AdicionarIngredientes", "AdcIngrediente", new { @class = "btn btn-secondary my-2 my-sm-0" })
 </p>
 <table class="table">
     <tr>
@@ -22,38 +23,63 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Titulo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TempoPreparo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Imagem)
-        </td>
-        <td>
-            @Html.ActionLink("Editar", "Editar", new { id=item.ReceitaId }) |
-            @Html.ActionLink("Detalhes", "Detalhes", new { id=item.ReceitaId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ReceitaId })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Titulo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TempoPreparo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Imagem)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Editar", new { id = item.ReceitaId }) |
+                @Html.ActionLink("Detalhes", "Detalhes", new { id = item.ReceitaId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ReceitaId })
+            </td>
+        </tr>
+    }
 </table>
 
 
 @foreach (var item in Model)
 {
-    <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
-        <button type="submit" >
-            @Html.ActionLink("Detalhes", "Detalhes", new { id = item.ReceitaId })
-            <div class="card-header">@Html.DisplayFor(modelItem => item.Titulo)</div>
-            <div class="card-body">
-                <h4 class="card-title">@Html.DisplayFor(modelItem => item.Imagem)</h4>
-                <p class="card-text">@Html.DisplayFor(modelItem => item.TempoPreparo) MIN</p>
+    
+        <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
+            <button type="submit">
+                @Html.ActionLink("Detalhes", "Detalhes", new { id = item.ReceitaId })
+                <div class="card-header">@Html.DisplayFor(modelItem => item.Titulo)</div>
+                <div class="card-body">
+                    <h4 class="card-title">@Html.DisplayFor(modelItem => item.Imagem)</h4>
+                    <p class="card-text">@Html.DisplayFor(modelItem => item.TempoPreparo) MIN</p>
+                </div>
+            </button>
+        </div>
+
+}
+
+@foreach (var item in Model)
+{
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            @Html.DisplayFor(modelItem => item.Titulo) -
+        </div>
+        <div class="panel-body" style="text-align:justify">
+            @Html.DisplayFor(modelItem => item.Imagem)
+        </div>
+        <div class="panel-footer">
+            <div style="float:left">
+                Criado Por: @Html.DisplayFor(modelItem => item.Usuario.Nome)
             </div>
-        </button>
+            <div style="float:right">
+                @Html.ActionLink("Comentar", "Cadastrar", "Comentarios",
+                new { id = item.ReceitaId }, null)
+            </div>
+            <div class="clearfix"></div>
+        </div>
     </div>
 }
 

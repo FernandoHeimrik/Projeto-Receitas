@@ -33,8 +33,15 @@
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li>
-                   @ViewBag.Perfil
+                <li class="nav-link">
+                    @if (Request.IsAuthenticated)
+                    {
+                        @Html.ActionLink(HttpContext.Current.User.Identity.Name, "", "", new { @class = "btn btn-primary btn-sm" })
+                    }
+                    else
+                    {
+                        
+                    }
                 </li>
                 @if (Request.IsAuthenticated)
                 {

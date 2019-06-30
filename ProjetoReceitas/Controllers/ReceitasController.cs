@@ -14,6 +14,7 @@ namespace ProjetoReceitas.Controllers
 {
     public class ReceitasController : Controller
     {
+
         // GET: Receitas
         public ActionResult Index()
         {
@@ -85,19 +86,20 @@ namespace ProjetoReceitas.Controllers
             return View(r);
         }
 
-        public ActionResult AdicionarIngredientes()
+        public ActionResult AdicionarIngredientes(int? id)
         {
+
             ViewBag.Ingredientes = new SelectList(IngredienteDAO.RetornarIngredientes(), "IngredienteId", "Nome");
             return View();
         }
 
         [HttpPost]
-        public ActionResult AdicionarIngredientes(ItemIngredienteReceita itemIngrediente, int? Ingrediente)
+        public ActionResult AdicionarIngredientes(ItemIngredienteReceita itemIngrediente, int? Ingredientes)
         {
-
+            
             ViewBag.Ingredientes = new SelectList(IngredienteDAO.RetornarIngredientes(), "IngredienteId", "Nome");
 
-            itemIngrediente.Ingrediente = IngredienteDAO.BuscarIngredientePorId(Ingrediente);
+            itemIngrediente.Ingrediente = IngredienteDAO.BuscarIngredientePorId(Ingredientes);
             itemIngrediente.SessaoReceitaId = Sessao.RetornarItemReceitaId();
             ItemIngredienteReceitaDAO.CadastrarItemIngrediente(itemIngrediente);
 
