@@ -34,18 +34,18 @@
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    @Html.ActionLink("Usuario","Login","Perfis")
+                   @ViewBag.Perfil
                 </li>
                 @if (Request.IsAuthenticated)
                 {
                     <li>
-                        @Html.ActionLink("Logout", "Logout", "Perfis")
+                        @Html.ActionLink("Logout", "Logout","Perfis","Perfis", new { @class = "btn btn-secondary my-2 my-sm-0" })
                     </li>
                 }
                 else
                 {
                     <li>
-                        @Html.ActionLink("Login", "Login", "Perfis")
+                        @Html.ActionLink("Login", "Login", "Perfis","Perfis", new { @class = "btn btn-secondary my-2 my-sm-0" })
                     </li>
                 }
             </ul>

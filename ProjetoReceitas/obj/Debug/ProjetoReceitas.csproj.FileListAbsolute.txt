@@ -114,3 +114,17 @@ D:\Projetos\visual studio 2015\ProjetoReceitas\ProjetoReceitas\obj\Debug\Projeto
 D:\Projetos\visual studio 2015\ProjetoReceitas\ProjetoReceitas\obj\Debug\ProjetoReceitas.Migrations.addIngrediente5.resources
 D:\Projetos\visual studio 2015\ProjetoReceitas\ProjetoReceitas\obj\Debug\ProjetoReceitas.Migrations.addIngrediente6.resources
 D:\Projetos\visual studio 2015\ProjetoReceitas\ProjetoReceitas\obj\Debug\ProjetoReceitas.csprojResolveAssemblyReference.cache
+C:\Users\Fernando\Documents\Visual Studio 2015\receita\Projeto-Receitas\ProjetoReceitas\obj\Debug\ProjetoReceitas.Migrations.addIngrediente.resources
+C:\Users\Fernando\Documents\Visual Studio 2015\receita\Projeto-Receitas\ProjetoReceitas\obj\Debug\ProjetoReceitas.Migrations.addIngrediente2.resources
+C:\Users\Fernando\Documents\Visual Studio 2015\receita\Projeto-Receitas\ProjetoReceitas\obj\Debug\ProjetoReceitas.Migrations.addIngrediente3.resources
+C:\Users\Fernando\Documents\Visual Studio 2015\receita\Projeto-Receitas\ProjetoReceitas\obj\Debug\ProjetoReceitas.Migrations.addIngrediente4.resources
+C:\Users\Fernando\Documents\Visual Studio 2015\receita\Projeto-Receitas\ProjetoReceitas\obj\Debug\ProjetoReceitas.Migrations.addIngrediente5.resources
+C:\Users\Fernando\Documents\Visual Studio 2015\receita\Projeto-Receitas\ProjetoReceitas\obj\Debug\ProjetoReceitas.Migrations.addIngrediente6.resources
+C:\Users\Fernando\Documents\Visual Studio 2015\receita\Projeto-Receitas\ProjetoReceitas\bin\Newtonsoft.Json.dll
+C:\Users\Fernando\Documents\Visual Studio 2015\receita\Projeto-Receitas\ProjetoReceitas\bin\System.Net.Http.Formatting.dll
+C:\Users\Fernando\Documents\Visual Studio 2015\receita\Projeto-Receitas\ProjetoReceitas\bin\System.Web.Http.dll
+C:\Users\Fernando\Documents\Visual Studio 2015\receita\Projeto-Receitas\ProjetoReceitas\bin\System.Web.Http.WebHost.dll
+C:\Users\Fernando\Documents\Visual Studio 2015\receita\Projeto-Receitas\ProjetoReceitas\bin\Newtonsoft.Json.xml
+C:\Users\Fernando\Documents\Visual Studio 2015\receita\Projeto-Receitas\ProjetoReceitas\bin\System.Net.Http.Formatting.xml
+C:\Users\Fernando\Documents\Visual Studio 2015\receita\Projeto-Receitas\ProjetoReceitas\bin\System.Web.Http.xml
+C:\Users\Fernando\Documents\Visual Studio 2015\receita\Projeto-Receitas\ProjetoReceitas\bin\System.Web.Http.WebHost.xml
