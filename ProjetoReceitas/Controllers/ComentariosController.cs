@@ -43,16 +43,8 @@ namespace ProjetoReceitas.Controllers
             if (ModelState.IsValid)
             {
                 comentario.DataCriacao = DateTime.Now;
-                if (Request.IsAuthenticated)
-                {
-                    ViewBag.Usuario = User.Identity.Name;
-                    comentario.Usuario = ViewBag.Usuario;
-                }
-                else
-                {
-                    ViewBag.Mensagem = "Não é possível criar um comentario sem estar efetuado Login!";
-                    return RedirectToAction("Cadastrar", "Comentarios");
-                }
+                ViewBag.Usuario = User.Identity.Name;
+                comentario.Usuario = ViewBag.Usuario;
                 comentario.Receita = ReceitaDAO.BuscarReceitaPorId(idReceita);
                 ComentarioDAO.CadastrarComentario(comentario);
                 return RedirectToAction("Cadastrar", "Comentarios");
@@ -61,6 +53,6 @@ namespace ProjetoReceitas.Controllers
             return View(comentario);
         }
 
-       
+
     }
 }

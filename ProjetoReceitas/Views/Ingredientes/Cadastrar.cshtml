@@ -5,7 +5,7 @@
 }
 
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm("Cadastrar","Ingredientes",FormMethod.Post)) 
 {
     @Html.AntiForgeryToken()
     <div class="row" id="ingredientes">

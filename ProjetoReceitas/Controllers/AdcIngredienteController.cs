@@ -33,7 +33,7 @@ namespace ProjetoReceitas.DAL
             itemIngrediente.SessaoReceitaId = Sessao.RetornarItemReceitaId();
             ItemIngredienteReceitaDAO.CadastrarItemIngrediente(itemIngrediente);
 
-            return RedirectToAction("AdicionarIngredientes", "Receitas");
+            return RedirectToAction("AdicionarIngredientes", "AdcIngrediente");
         }
     }
 }

@@ -13,7 +13,7 @@ namespace ProjetoReceitas.DAL
 
         public static bool CadastrarIngrediente(Ingrediente i)
         {
-            if(BuscarIngredientePorNome(i) != null)
+            if(BuscarIngredientePorNome(i) == null)
             {
                 ctx.Ingredientes.Add(i);
                 ctx.SaveChanges();

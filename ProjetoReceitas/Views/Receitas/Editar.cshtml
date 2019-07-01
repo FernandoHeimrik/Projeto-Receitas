@@ -2,7 +2,7 @@
 
 <h2>Editar</h2>
 
-@using (Html.BeginForm("Cadastrar", "Receitas", FormMethod.Post))
+@using (Html.BeginForm("Alterar", "Receitas", FormMethod.Post))
 {
     @Html.AntiForgeryToken()
     
@@ -30,8 +30,8 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Imagem, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Imagem, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Imagem, "", new { @class = "text-danger" })
+                <input type="file" class="form-control-file" id="adcImagem" aria-describedby="fileHelp">
+                <small id="fileHelp" class="form-text text-muted">Adicione uma Imagem para sua Receita</small>
             </div>
         </div>
 

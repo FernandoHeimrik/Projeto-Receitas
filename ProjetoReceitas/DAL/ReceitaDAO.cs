@@ -51,5 +51,11 @@ namespace ProjetoReceitas.DAL
         {
             return ctx.Receitas.Find(id);
         }
+
+        public static void RemoverReceita(Receita r)
+        {
+            ctx.Receitas.Remove(r);
+            ctx.SaveChanges();
+        }
     }
 }

@@ -218,6 +218,10 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201906302353422_init.cs" />
+    <Compile Include="Migrations\201906302353422_init.Designer.cs">
+      <DependentUpon>201906302353422_init.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Comentario.cs" />
     <Compile Include="Models\Context.cs" />
@@ -262,7 +266,6 @@
     <Content Include="Views\Receitas\Detalhes.cshtml" />
     <Content Include="Views\Receitas\Editar.cshtml" />
     <Content Include="Views\Receitas\Index.cshtml" />
-    <Content Include="Views\Receitas\AdicionarIngredientes.cshtml" />
     <Content Include="Views\Ingredientes\Cadastrar.cshtml" />
     <Content Include="Views\Ingredientes\Delete.cshtml" />
     <Content Include="Views\Ingredientes\Editar.cshtml" />
@@ -278,12 +281,18 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Imagens\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="scripts\index.d.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201906302353422_init.resx">
+      <DependentUpon>201906302353422_init.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

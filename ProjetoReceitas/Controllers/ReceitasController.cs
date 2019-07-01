@@ -38,7 +38,7 @@ namespace ProjetoReceitas.Controllers
         }
 
         [HttpPost]
-        public ActionResult Cadastrar(Receita r, int? NiveisDificuldades, int? TiposRefeicoes, ItemIngredienteReceita Ingredientes)
+        public ActionResult Cadastrar(Receita receita, int? NiveisDificuldades, int? TiposRefeicoes, ItemIngredienteReceita Ingredientes, HttpPostedFileBase fupImagem)
         {
             ViewBag.TiposRefeicoes = new SelectList(TipoRefeicaoDAO.RetornarTiposRefeicoes(), "TipoRefeicaoId", "Nome");
             ViewBag.NiveisDificuldades = new SelectList(NivelDificuldadeDAO.RetornarNiveisDificuldades(), "DificuldadeId", "Nome");
@@ -46,44 +46,63 @@ namespace ProjetoReceitas.Controllers
             
             if (ModelState.IsValid)
             {
-                r.SessaoReceitaId = Sessao.RetornarItemReceitaId();
-                r.NivelDificuldade = NivelDificuldadeDAO.BuscarNivelDificuldadePorId(NiveisDificuldades);
-                r.TipoRefeicao = TipoRefeicaoDAO.BuscarTipoRefeicaoPorId(TiposRefeicoes);
-                r.Ingredientes = ItemIngredienteReceitaDAO.RetornarItemIngrediente();
-                if (ReceitaDAO.CadastrarReceita(r))
+                receita.SessaoReceitaId = Sessao.RetornarItemReceitaId();
+                receita.NivelDificuldade = NivelDificuldadeDAO.BuscarNivelDificuldadePorId(NiveisDificuldades);
+                receita.TipoRefeicao = TipoRefeicaoDAO.BuscarTipoRefeicaoPorId(TiposRefeicoes);
+                receita.Ingredientes = ItemIngredienteReceitaDAO.RetornarItemIngrediente();
+                if(fupImagem != null)
+                {
+                    try
+                    {
+                        string caminho = System.IO.Path.Combine(Server.MapPath("~/Images/"), fupImagem.FileName);
+                        fupImagem.SaveAs(caminho);
+                        receita.Imagem = fupImagem.FileName;
+                    }
+                    catch
+                    {
+                        receita.Imagem = "semimagem.jpeg";
+                    }
+                    
+                }else
+                {
+                    receita.Imagem = "semimagem.jpeg";
+                }
+
+
+                if (ReceitaDAO.CadastrarReceita(receita))
                 {
                     Sessao.ZerarSessao();
                     return RedirectToAction("Index", "Receitas");
                 }
                 ModelState.AddModelError("", "Já existe uma Refeição com esse Titulo");
                 Sessao.ZerarSessao();
-                return View(r);
+                return View(receita);
             }
             Sessao.ZerarSessao();
             return RedirectToAction("Index", "Receitas");
         }
         public ActionResult Editar(int? id)
         {
-            Receita r = ReceitaDAO.BuscarReceitaPorId(id);
-            return View(r);
+            Receita receita = ReceitaDAO.BuscarReceitaPorId(id);
+            return View(receita);
         }
 
         [HttpPost]
-        public ActionResult Editar(Receita r)
+        public ActionResult Editar(Receita receita)
         {
             if (ModelState.IsValid)
             {
-                Receita aux = ReceitaDAO.BuscarReceitaPorId(r.ReceitaId);
-                aux.Titulo = r.Titulo;
-                aux.TipoRefeicao = r.TipoRefeicao;
-                aux.NivelDificuldade = r.NivelDificuldade;
-                aux.TempoPreparo = r.TempoPreparo;
-                aux.Imagem = r.Imagem;
+                Receita aux = ReceitaDAO.BuscarReceitaPorId(receita.ReceitaId);
+                aux.Titulo = receita.Titulo;
+                aux.TipoRefeicao = receita.TipoRefeicao;
+                aux.NivelDificuldade = receita.NivelDificuldade;
+                aux.TempoPreparo = receita.TempoPreparo;
+                
 
-                ReceitaDAO.AlterarReceita(r);
+                ReceitaDAO.AlterarReceita(receita);
                 return RedirectToAction("Index", "Receitas");
             }
-            return View(r);
+            return View(receita);
         }
 
         public ActionResult AdicionarIngredientes(int? id)
@@ -106,5 +125,10 @@ namespace ProjetoReceitas.Controllers
             return RedirectToAction("AdicionarIngredientes", "Receitas");
         }
 
+        public ActionResult Remover(int? id)
+        {
+            ReceitaDAO.RemoverReceita(ReceitaDAO.BuscarReceitaPorId(id));
+            return RedirectToAction("Index", "Receitas");
+        }
     }
 }

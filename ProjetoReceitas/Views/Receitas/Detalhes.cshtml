@@ -31,22 +31,39 @@
         <dd>
             @Html.DisplayFor(model => model.NivelDificuldade.Nome)
         </dd>
+        </dl>
 
-        <dt>
-            Quantidade
-            Unidade de Medida
-            Ingrediente
-            
-            @foreach (var  i in Model.Ingredientes)
-            {
-                
-                    @i.Quantidade
-                    @i.UnidadeMedida
-                    @i.Ingrediente.Nome
-            }
-        </dt>
+    <table class="table table-hover">
+        <tr>
+            <th>
+                Quantidade
+            </th>
+            <th>
+                Unidade de Medida
+            </th>
+            <th>
+                Ingrediente
+            </th>
+            <th></th>
+        </tr>
 
+        @foreach (var item in Model.Ingredientes)
+        {
+            <tr>
+                <td>
+                    @item.Quantidade
+                </td>
+                <td>
+                    @item.UnidadeMedida
+                </td>
+                <td>
+                    @item.Ingrediente.Nome
+                </td>
+            </tr>
+        }
+    </table>
 
+    <dl class="dl-horizontal">
         <dt>
             @Html.DisplayNameFor(model => model.TempoPreparo)
         </dt>
