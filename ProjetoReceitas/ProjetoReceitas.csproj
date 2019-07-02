@@ -81,8 +81,8 @@
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Diagnostics.DiagnosticSource">
@@ -201,6 +201,7 @@
     <Compile Include="Controllers\ComentariosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\IngredientesController.cs" />
+    <Compile Include="Controllers\MealsController.cs" />
     <Compile Include="Controllers\NiveisDificuldadesController.cs" />
     <Compile Include="Controllers\PerfisController.cs" />
     <Compile Include="Controllers\ReceitasAPIController.cs" />
@@ -218,9 +219,25 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201906302353422_init.cs" />
-    <Compile Include="Migrations\201906302353422_init.Designer.cs">
-      <DependentUpon>201906302353422_init.cs</DependentUpon>
+    <Compile Include="Migrations\201907020402025_addMealApi.cs" />
+    <Compile Include="Migrations\201907020402025_addMealApi.Designer.cs">
+      <DependentUpon>201907020402025_addMealApi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201907020451003_addMealApi5.cs" />
+    <Compile Include="Migrations\201907020451003_addMealApi5.Designer.cs">
+      <DependentUpon>201907020451003_addMealApi5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201907020607003_addMealApi6.cs" />
+    <Compile Include="Migrations\201907020607003_addMealApi6.Designer.cs">
+      <DependentUpon>201907020607003_addMealApi6.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201907020607574_addMealApi7.cs" />
+    <Compile Include="Migrations\201907020607574_addMealApi7.Designer.cs">
+      <DependentUpon>201907020607574_addMealApi7.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201907020712334_api.cs" />
+    <Compile Include="Migrations\201907020712334_api.Designer.cs">
+      <DependentUpon>201907020712334_api.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Comentario.cs" />
@@ -228,6 +245,7 @@
     <Compile Include="Models\Enums\TipoPerfil.cs" />
     <Compile Include="Models\Ingrediente.cs" />
     <Compile Include="Models\ItemIngredienteReceita.cs" />
+    <Compile Include="Models\Meal.cs" />
     <Compile Include="Models\NivelDificuldade.cs" />
     <Compile Include="Models\Perfil.cs" />
     <Compile Include="Models\Receita.cs" />
@@ -272,6 +290,11 @@
     <Content Include="Views\Comentarios\Cadastrar.cshtml" />
     <Content Include="Views\Comentarios\Edit.cshtml" />
     <Content Include="Views\AdcIngrediente\AdicionarIngredientes.cshtml" />
+    <Content Include="Views\Meals\Create.cshtml" />
+    <Content Include="Views\Meals\Delete.cshtml" />
+    <Content Include="Views\Meals\Details.cshtml" />
+    <Content Include="Views\Meals\Edit.cshtml" />
+    <Content Include="Views\Meals\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -290,8 +313,20 @@
     <TypeScriptCompile Include="scripts\index.d.ts" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201906302353422_init.resx">
-      <DependentUpon>201906302353422_init.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201907020402025_addMealApi.resx">
+      <DependentUpon>201907020402025_addMealApi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907020451003_addMealApi5.resx">
+      <DependentUpon>201907020451003_addMealApi5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907020607003_addMealApi6.resx">
+      <DependentUpon>201907020607003_addMealApi6.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907020607574_addMealApi7.resx">
+      <DependentUpon>201907020607574_addMealApi7.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907020712334_api.resx">
+      <DependentUpon>201907020712334_api.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

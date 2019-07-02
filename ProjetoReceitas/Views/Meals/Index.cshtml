@@ -1,0 +1,88 @@
+﻿@model IEnumerable<ProjetoReceitas.Models.Meal>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.strMeal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.strCategory)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.strArea)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.strInstructions)
+        </th>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.strTags)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.strYoutube)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.strIngredient1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.strIngredient2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.strIngredient3)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.strIngredient4)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.strMeal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.strCategory)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.strArea)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.strInstructions)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.strTags)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.strYoutube)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.strIngredient1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.strIngredient2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.strIngredient3)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.strIngredient4)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.idMeal }) |
+            @Html.ActionLink("Details", "Details", new { id=item.idMeal }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.idMeal })
+        </td>
+    </tr>
+}
+
+</table>

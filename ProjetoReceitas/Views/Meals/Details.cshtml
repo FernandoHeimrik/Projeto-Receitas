@@ -1,0 +1,98 @@
+﻿@model ProjetoReceitas.Models.Meal
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Meal</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.strMeal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.strMeal)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.strCategory)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.strCategory)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.strArea)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.strArea)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.strInstructions)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.strInstructions)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.strTags)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.strTags)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.strYoutube)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.strYoutube)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.strIngredient1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.strIngredient1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.strIngredient2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.strIngredient2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.strIngredient3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.strIngredient3)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.strIngredient4)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.strIngredient4)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.idMeal }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

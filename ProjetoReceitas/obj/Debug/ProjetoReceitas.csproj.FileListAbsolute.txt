@@ -129,5 +129,10 @@ D:\Projetos\visual studio 2015\ProjetoReceitas\ProjetoReceitas\bin\System.Web.Ht
 D:\Projetos\visual studio 2015\ProjetoReceitas\ProjetoReceitas\obj\Debug\ProjetoReceitas.Migrations.addComentario.resources
 D:\Projetos\visual studio 2015\ProjetoReceitas\ProjetoReceitas\obj\Debug\ProjetoReceitas.Migrations.addComentarioAtt.resources
 D:\Projetos\visual studio 2015\ProjetoReceitas\ProjetoReceitas\obj\Debug\ProjetoReceitas.Migrations.addComentarioAttusuario.resources
-C:\Users\Fernando\Documents\Visual Studio 2015\receita\Projeto-Receitas\ProjetoReceitas\obj\Debug\ProjetoReceitas.Migrations.init.resources
+C:\Users\Fernando\Documents\Visual Studio 2015\receita\Projeto-Receitas\ProjetoReceitas\obj\Debug\ProjetoReceitas.Migrations.addMealApi.resources
 C:\Users\Fernando\Documents\Visual Studio 2015\receita\Projeto-Receitas\ProjetoReceitas\obj\Debug\ProjetoReceitas.csproj.GenerateResource.Cache
+C:\Users\Fernando\Documents\Visual Studio 2015\receita\Projeto-Receitas\ProjetoReceitas\obj\Debug\ProjetoReceitas.Migrations.addMealApi5.resources
+C:\Users\Fernando\Documents\Visual Studio 2015\receita\Projeto-Receitas\ProjetoReceitas\obj\Debug\ProjetoReceitas.Migrations.addMealApi6.resources
+C:\Users\Fernando\Documents\Visual Studio 2015\receita\Projeto-Receitas\ProjetoReceitas\obj\Debug\ProjetoReceitas.Migrations.addMealApi7.resources
+C:\Users\Fernando\Documents\Visual Studio 2015\receita\Projeto-Receitas\ProjetoReceitas\obj\Debug\ProjetoReceitas.csprojResolveAssemblyReference.cache
+C:\Users\Fernando\Documents\Visual Studio 2015\receita\Projeto-Receitas\ProjetoReceitas\obj\Debug\ProjetoReceitas.Migrations.api.resources
