@@ -45,22 +45,4 @@
 </table>
 
 
-@foreach (var item in Model)
-{
-    
-        <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
-            <button type="submit">
-                @Html.ActionLink("Visualizar", "Cadastrar", "Comentarios", new { id = item.ReceitaId })
-                <div class="card-header">@Html.DisplayFor(modelItem => item.Titulo)</div>
-                <div class="card-body">
-                    <h4 class="card-title">@Html.DisplayFor(modelItem => item.Imagem)</h4>
-                    <p class="card-text">@Html.DisplayFor(modelItem => item.TempoPreparo) MIN</p>
-                </div>
-                <div class="card-footer">
-                    <p class="card-text">@Html.DisplayFor(modelItem => item.Usuario.Nome)</p>
-                </div>
-            </button>
-        </div>
-
-}
 

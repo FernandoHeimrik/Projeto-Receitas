@@ -10,54 +10,103 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <a class="navbar-brand" href="~/Home/Index">Receitas</a>
-        <div class="collapse navbar-collapse" id="navbarColor01">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="~/Ingredientes/Cadastrar">Ingredientes <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="~/Receitas/Index">Lista de Receitas</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Area Administrativa</a>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="~/TiposRefeicoes/Index">Tipos de Refeições</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="~/NiveisDificuldades/Index">Niveis de Dificuldade</a>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="~/Meals/Index">TheMealAPI</a>
-                </li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li class="nav-link">
+    @if (Request.IsAuthenticated)
+    {
+
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+            <a class="navbar-brand" href="~/Home/Index">Receitas</a>
+            <div class="collapse navbar-collapse" id="navbarColor01">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="~/Ingredientes/Cadastrar">Ingredientes <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="~/Receitas/Index">Lista de Receitas</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Area Administrativa</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="~/TiposRefeicoes/Index">Tipos de Refeições</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="~/NiveisDificuldades/Index">Niveis de Dificuldade</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="~/Meals/Index">TheMealAPI</a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="nav-link">
+                        @if (Request.IsAuthenticated)
+                        {
+                            @Html.ActionLink(HttpContext.Current.User.Identity.Name, "", "", new { @class = "btn btn-primary btn-sm" })
+                        }
+                        else
+                        {
+
+                        }
+                    </li>
                     @if (Request.IsAuthenticated)
-                    {
-                        @Html.ActionLink(HttpContext.Current.User.Identity.Name, "", "", new { @class = "btn btn-primary btn-sm" })
+                {
+                        <li>
+                            @Html.ActionLink("Logout", "Logout", "Perfis", "Perfis", new { @class = "btn btn-secondary my-2 my-sm-0" })
+                        </li>
                     }
                     else
                     {
-                        
+                        <li>
+                            @Html.ActionLink("Login", "Login", "Perfis", "Perfis", new { @class = "btn btn-secondary my-2 my-sm-0" })
+                        </li>
                     }
-                </li>
-                @if (Request.IsAuthenticated)
-                {
-                    <li>
-                        @Html.ActionLink("Logout", "Logout","Perfis","Perfis", new { @class = "btn btn-secondary my-2 my-sm-0" })
+                </ul>
+            </div>
+        </nav>
+    }
+    else
+    {
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+            <a class="navbar-brand" href="~/Home/Index">Receitas</a>
+            <div class="collapse navbar-collapse" id="navbarColor01">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="~/Ingredientes/Cadastrar">Ingredientes <span class="sr-only">(current)</span></a>
                     </li>
-                }
-                else
-                {
-                    <li>
-                        @Html.ActionLink("Login", "Login", "Perfis","Perfis", new { @class = "btn btn-secondary my-2 my-sm-0" })
+                    <li class="nav-item">
+                        <a class="nav-link" href="~/Receitas/Index">Lista de Receitas</a>
                     </li>
-                }
-            </ul>
-        </div>
-    </nav>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link disabled" data-toggle="dropdown" href="#">Area Administrativa</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="~/TiposRefeicoes/Index">Tipos de Refeições</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="~/NiveisDificuldades/Index">Niveis de Dificuldade</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="~/Meals/Index">TheMealAPI</a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="nav-link">
+                        
+                    </li>
+                    @if (Request.IsAuthenticated)
+                {
+                        <li>
+                            @Html.ActionLink("Logout", "Logout", "Perfis", "Perfis", new { @class = "btn btn-secondary my-2 my-sm-0" })
+                        </li>
+                    }
+                    else
+                    {
+                        <li>
+                            @Html.ActionLink("Login", "Login", "Perfis", "Perfis", new { @class = "btn btn-secondary my-2 my-sm-0" })
+                        </li>
+                    }
+                </ul>
+            </div>
+        </nav>
+    }
+
 
     <div id="conteudo" class="container body-content" style="margin-top:30px;margin-bottom:30px">
         @RenderBody()
@@ -69,4 +118,3 @@
     </footer>
 </body>
 </html>
-@*@RenderSection("scripts", required: false)*@
