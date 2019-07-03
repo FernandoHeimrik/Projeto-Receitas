@@ -14,9 +14,7 @@ namespace ProjetoReceitas.Controllers
     public class ComentariosController : Controller
     {
         private static int? idReceita;
-
-
-
+        
         // GET: Comentarios/Create
         public ActionResult Cadastrar(int? id)
         {

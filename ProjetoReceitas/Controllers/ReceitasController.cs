@@ -43,9 +43,19 @@ namespace ProjetoReceitas.Controllers
             ViewBag.TiposRefeicoes = new SelectList(TipoRefeicaoDAO.RetornarTiposRefeicoes(), "TipoRefeicaoId", "Nome");
             ViewBag.NiveisDificuldades = new SelectList(NivelDificuldadeDAO.RetornarNiveisDificuldades(), "DificuldadeId", "Nome");
             ViewBag.ItemIngrediente = ItemIngredienteReceitaDAO.RetornarItemIngrediente();
-            
+            ViewBag.Usuario = User.Identity.Name;
+
+
             if (ModelState.IsValid)
             {
+                if (Request.IsAuthenticated)
+                {
+                    receita.Usuario = ViewBag.Usuario;
+                }else
+                {
+                    receita.Usuario = "Desconhecido";
+                }
+                
                 receita.SessaoReceitaId = Sessao.RetornarItemReceitaId();
                 receita.NivelDificuldade = NivelDificuldadeDAO.BuscarNivelDificuldadePorId(NiveisDificuldades);
                 receita.TipoRefeicao = TipoRefeicaoDAO.BuscarTipoRefeicaoPorId(TiposRefeicoes);

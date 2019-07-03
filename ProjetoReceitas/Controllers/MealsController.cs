@@ -7,22 +7,19 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using ProjetoReceitas.Models;
-using System.Text;
-using System.IO;
+using RestSharp;
 using Newtonsoft.Json;
+using ProjetoReceitas.DAL;
 
 namespace ProjetoReceitas.Controllers
 {
     public class MealsController : Controller
     {
-        private Context db = new Context();
-
         public static string URL_API = "https://www.themealdb.com/api/json/v1/1/";
-
         // GET: Meals
         public ActionResult Index()
         {
-            return View(db.Meals.ToList());
+            return View(MealDAO.RetornarMeals());
         }
 
         // GET: Meals/Details/5
@@ -32,7 +29,7 @@ namespace ProjetoReceitas.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Meal meal = db.Meals.Find(id);
+            Meal meal = MealDAO.BuscarMealPorId(id);
             if (meal == null)
             {
                 return HttpNotFound();
@@ -43,7 +40,7 @@ namespace ProjetoReceitas.Controllers
         // GET: Meals/Create
         public ActionResult Create()
         {
-            Meal meal = (Meal)TempData["Meal"];
+            Meal meal = (Meal) TempData["Meal"];
             return View(meal);
         }
 
@@ -52,12 +49,20 @@ namespace ProjetoReceitas.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "idMeal,strMeal,strCategory,strArea,strMealThumb,strTags,strYoutube,strIngredient1,strIngredient2,strIngredient3,strIngredient4,strIngredient5,strIngredient6,strIngredient7,strIngredient8,strIngredient9,strIngredient10,strIngredient11,strIngredient12,strIngredient13,strIngredient14,strIngredient15,strMeasure1,strMeasure2,strMeasure3,strMeasure4,strMeasure5,strMeasure6,strMeasure7,strMeasure8,strMeasure9,strMeasure10,strMeasure11,strMeasure12,strMeasure13,strMeasure14,strMeasure15")] Meal meal)
+        public ActionResult Create([Bind(Include = "idMeal,strMeal,strCategory,strArea,strInstructions,strMealThumb,strTags,strYoutube,strIngredient1,strIngredient2,strIngredient3,strIngredient4,strIngredient5,strIngredient6,strIngredient7,strIngredient8,strIngredient9,strIngredient10,strIngredient11,strIngredient12,strIngredient13,strIngredient14,strIngredient15,strMeasure1,strMeasure2,strMeasure3,strMeasure4,strMeasure5,strMeasure6,strMeasure7,strMeasure8,strMeasure9,strMeasure10,strMeasure11,strMeasure12,strMeasure13,strMeasure14,strMeasure15")] Meal meal)
         {
+            ViewBag.Usuario = User.Identity.Name;
             if (ModelState.IsValid)
             {
-                db.Meals.Add(meal);
-                db.SaveChanges();
+                if (Request.IsAuthenticated)
+                {
+                    meal.Usuario = ViewBag.Usuario;
+                }
+                else
+                {
+                    meal.Usuario = "Desconhecido";
+                }
+                MealDAO.CadastrarMealApi(meal);
                 return RedirectToAction("Index");
             }
 
@@ -71,7 +76,7 @@ namespace ProjetoReceitas.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Meal meal = db.Meals.Find(id);
+            Meal meal = MealDAO.BuscarMealPorId(id);
             if (meal == null)
             {
                 return HttpNotFound();
@@ -84,12 +89,11 @@ namespace ProjetoReceitas.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "idMeal,strMeal,strCategory,strArea,strMealThumb,strTags,strYoutube,strIngredient1,strIngredient2,strIngredient3,strIngredient4,strIngredient5,strIngredient6,strIngredient7,strIngredient8,strIngredient9,strIngredient10,strIngredient11,strIngredient12,strIngredient13,strIngredient14,strIngredient15,strMeasure1,strMeasure2,strMeasure3,strMeasure4,strMeasure5,strMeasure6,strMeasure7,strMeasure8,strMeasure9,strMeasure10,strMeasure11,strMeasure12,strMeasure13,strMeasure14,strMeasure15")] Meal meal)
+        public ActionResult Edit([Bind(Include = "idMeal,strMeal,strCategory,strArea,strInstructions,strMealThumb,strTags,strYoutube,strIngredient1,strIngredient2,strIngredient3,strIngredient4,strIngredient5,strIngredient6,strIngredient7,strIngredient8,strIngredient9,strIngredient10,strIngredient11,strIngredient12,strIngredient13,strIngredient14,strIngredient15,strMeasure1,strMeasure2,strMeasure3,strMeasure4,strMeasure5,strMeasure6,strMeasure7,strMeasure8,strMeasure9,strMeasure10,strMeasure11,strMeasure12,strMeasure13,strMeasure14,strMeasure15")] Meal meal)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(meal).State = EntityState.Modified;
-                db.SaveChanges();
+                MealDAO.AlterarMeal(meal);
                 return RedirectToAction("Index");
             }
             return View(meal);
@@ -102,7 +106,7 @@ namespace ProjetoReceitas.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Meal meal = db.Meals.Find(id);
+            Meal meal = MealDAO.BuscarMealPorId(id);
             if (meal == null)
             {
                 return HttpNotFound();
@@ -115,28 +119,75 @@ namespace ProjetoReceitas.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(string id)
         {
-            Meal meal = db.Meals.Find(id);
-            db.Meals.Remove(meal);
-            db.SaveChanges();
+            Meal meal = MealDAO.BuscarMealPorId(id);
+            MealDAO.RemoverMeal(meal);
             return RedirectToAction("Index");
         }
 
         [HttpPost]
         public ActionResult BuscarReceitaPorNome(Meal meal)
         {
-            //https://www.themealdb.com/api/json/v1/1/lookup.php?i=52772
-            string url = URL_API + "lookup.php?i=" + meal.idMeal;
-            WebClient client = new WebClient();
+            var cliente = new RestClient(URL_API + "search.php?s=" + meal.strMeal);
+            var request = new RestRequest(Method.GET);
+            IRestResponse response = cliente.Execute(request);
 
-            string json = client.DownloadString(url);
-            //byte[] bytes = Encoding.Default.GetBytes(json);
-            //json = Encoding.UTF8.GetString(bytes);
-            meal = JsonConvert.DeserializeObject<Meal>(json);
+            var info = JsonConvert.DeserializeObject<Response>(response.Content);
 
+            info.Meals.ForEach(x =>
+            {
+                meal.strMeal = x.strMeal;
+                meal.idMeal = x.idMeal;
+                meal.strArea = x.strArea;
+                meal.strCategory = x.strCategory;
+                meal.strDrinkAlternate = x.strDrinkAlternate;
+                meal.strIngredient1 = x.strIngredient1;
+                meal.strIngredient2 = x.strIngredient2;
+                meal.strIngredient3 = x.strIngredient3;
+                meal.strIngredient4 = x.strIngredient4;
+                meal.strIngredient5 = x.strIngredient5;
+                meal.strIngredient6 = x.strIngredient6;
+                meal.strIngredient7 = x.strIngredient7;
+                meal.strIngredient8 = x.strIngredient8;
+                meal.strIngredient9 = x.strIngredient9;
+                meal.strIngredient10 = x.strIngredient10;
+                meal.strIngredient11 = x.strIngredient11;
+                meal.strIngredient12 = x.strIngredient12;
+                meal.strIngredient13 = x.strIngredient13;
+                meal.strIngredient14 = x.strIngredient14;
+                meal.strIngredient15 = x.strIngredient15;
+                meal.strIngredient16 = x.strIngredient16;
+                meal.strIngredient17 = x.strIngredient17;
+                meal.strIngredient18 = x.strIngredient18;
+                meal.strIngredient19 = x.strIngredient19;
+                meal.strIngredient20 = x.strIngredient20;
+                meal.strInstructions = x.strInstructions;
+                meal.strMealThumb = x.strMealThumb;
+                meal.strMeasure1 = x.strMeasure1;
+                meal.strMeasure2 = x.strMeasure2;
+                meal.strMeasure3 = x.strMeasure3;
+                meal.strMeasure4 = x.strMeasure4;
+                meal.strMeasure5 = x.strMeasure5;
+                meal.strMeasure6 = x.strMeasure6;
+                meal.strMeasure7 = x.strMeasure7;
+                meal.strMeasure8 = x.strMeasure8;
+                meal.strMeasure9 = x.strMeasure9;
+                meal.strMeasure10 = x.strMeasure10;
+                meal.strMeasure11 = x.strMeasure11;
+                meal.strMeasure12 = x.strMeasure12;
+                meal.strMeasure13 = x.strMeasure13;
+                meal.strMeasure14 = x.strMeasure14;
+                meal.strMeasure15 = x.strMeasure15;
+                meal.strMeasure16 = x.strMeasure16;
+                meal.strMeasure17 = x.strMeasure17;
+                meal.strMeasure18 = x.strMeasure18;
+                meal.strMeasure19 = x.strMeasure19;
+                meal.strMeasure20 = x.strMeasure20;
+                meal.strSource = x.strSource;
+                meal.strTags = x.strTags;
+                meal.strYoutube = x.strYoutube;
 
+            });
             TempData["Meal"] = meal;
-
-
             return RedirectToAction("Create", "Meals");
         }
     }

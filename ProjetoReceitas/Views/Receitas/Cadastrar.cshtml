@@ -4,7 +4,7 @@
 }
 <h2>Criar Receita</h2>
 
-@using (Html.BeginForm("Cadastrar", "Receitas", FormMethod.Post, new { enctype = "multipart/form-data" }))
+@using (Html.BeginForm("Cadastrar", "Receitas", FormMethod.Post, new { @class = "form-horizontal", enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
     <form>

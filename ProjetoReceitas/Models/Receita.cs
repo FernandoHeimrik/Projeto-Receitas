@@ -33,7 +33,7 @@ namespace ProjetoReceitas.Models
         public string Imagem { get; set; }
 
         [Display(Name = "Usuario")]
-        public Perfil Usuario { get; set; }
+        public string Usuario { get; set; }
 
         [Display(Name = "Modo de Preparo")]
         public string ModoDePreparo { get; set; }

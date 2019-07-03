@@ -85,6 +85,10 @@
       <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="RestSharp, Version=106.6.9.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestSharp.106.6.9\lib\net452\RestSharp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Diagnostics.DiagnosticSource">
       <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.5.1\lib\net45\System.Diagnostics.DiagnosticSource.dll</HintPath>
     </Reference>
@@ -94,6 +98,7 @@
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Net.Http.WebRequest" />
     <Reference Include="System.Runtime.Caching" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -211,6 +216,7 @@
     <Compile Include="DAL\ComentarioDAO.cs" />
     <Compile Include="DAL\IngredienteDAO.cs" />
     <Compile Include="DAL\ItemIngredienteReceitaDAO.cs" />
+    <Compile Include="DAL\MealDAO.cs" />
     <Compile Include="DAL\NivelDificuldadeDAO.cs" />
     <Compile Include="DAL\PerfilDAO.cs" />
     <Compile Include="DAL\ReceitaDAO.cs" />
@@ -219,25 +225,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201907020402025_addMealApi.cs" />
-    <Compile Include="Migrations\201907020402025_addMealApi.Designer.cs">
-      <DependentUpon>201907020402025_addMealApi.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201907020451003_addMealApi5.cs" />
-    <Compile Include="Migrations\201907020451003_addMealApi5.Designer.cs">
-      <DependentUpon>201907020451003_addMealApi5.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201907020607003_addMealApi6.cs" />
-    <Compile Include="Migrations\201907020607003_addMealApi6.Designer.cs">
-      <DependentUpon>201907020607003_addMealApi6.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201907020607574_addMealApi7.cs" />
-    <Compile Include="Migrations\201907020607574_addMealApi7.Designer.cs">
-      <DependentUpon>201907020607574_addMealApi7.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201907020712334_api.cs" />
-    <Compile Include="Migrations\201907020712334_api.Designer.cs">
-      <DependentUpon>201907020712334_api.cs</DependentUpon>
+    <Compile Include="Migrations\201907030339399_mealApi.cs" />
+    <Compile Include="Migrations\201907030339399_mealApi.Designer.cs">
+      <DependentUpon>201907030339399_mealApi.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Comentario.cs" />
@@ -313,20 +303,8 @@
     <TypeScriptCompile Include="scripts\index.d.ts" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201907020402025_addMealApi.resx">
-      <DependentUpon>201907020402025_addMealApi.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201907020451003_addMealApi5.resx">
-      <DependentUpon>201907020451003_addMealApi5.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201907020607003_addMealApi6.resx">
-      <DependentUpon>201907020607003_addMealApi6.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201907020607574_addMealApi7.resx">
-      <DependentUpon>201907020607574_addMealApi7.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201907020712334_api.resx">
-      <DependentUpon>201907020712334_api.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201907030339399_mealApi.resx">
+      <DependentUpon>201907030339399_mealApi.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
@@ -373,6 +351,11 @@
   <Import Project="..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.9.0\build\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.targets" Condition="Exists('..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.9.0\build\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.targets')" />
   <Import Project="..\packages\Microsoft.ApplicationInsights.WindowsServer.2.9.0\build\Microsoft.ApplicationInsights.WindowsServer.targets" Condition="Exists('..\packages\Microsoft.ApplicationInsights.WindowsServer.2.9.0\build\Microsoft.ApplicationInsights.WindowsServer.targets')" />
   <Import Project="..\packages\Microsoft.ApplicationInsights.Web.2.9.0\build\Microsoft.ApplicationInsights.Web.targets" Condition="Exists('..\packages\Microsoft.ApplicationInsights.Web.2.9.0\build\Microsoft.ApplicationInsights.Web.targets')" />
+  <Import Project="..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />
+  <Target Name="EnsureBclBuildImported" BeforeTargets="BeforeBuild" Condition="'$(BclBuildImported)' == ''">
+    <Error Condition="!Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=317567." HelpKeyword="BCLBUILD2001" />
+    <Error Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="The build restored NuGet packages. Build the project again to include these packages in the build. For more information, see http://go.microsoft.com/fwlink/?LinkID=317568." HelpKeyword="BCLBUILD2002" />
+  </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
