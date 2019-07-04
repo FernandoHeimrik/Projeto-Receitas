@@ -33,6 +33,7 @@ namespace ProjetoReceitas.DAL
 
         public static void AlterarReceita(Receita r)
         {
+            
             ctx.Entry(r).State = System.Data.Entity.EntityState.Modified;
             ctx.SaveChanges();
         }

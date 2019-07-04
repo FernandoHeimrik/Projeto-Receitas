@@ -205,6 +205,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\ComentariosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\IngredientesAPIController.cs" />
     <Compile Include="Controllers\IngredientesController.cs" />
     <Compile Include="Controllers\MealsController.cs" />
     <Compile Include="Controllers\NiveisDificuldadesController.cs" />
@@ -225,9 +226,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201907030339399_mealApi.cs" />
-    <Compile Include="Migrations\201907030339399_mealApi.Designer.cs">
-      <DependentUpon>201907030339399_mealApi.cs</DependentUpon>
+    <Compile Include="Migrations\201907040431523_dbReceita.cs" />
+    <Compile Include="Migrations\201907040431523_dbReceita.Designer.cs">
+      <DependentUpon>201907040431523_dbReceita.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Comentario.cs" />
@@ -303,8 +304,8 @@
     <TypeScriptCompile Include="scripts\index.d.ts" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201907030339399_mealApi.resx">
-      <DependentUpon>201907030339399_mealApi.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201907040431523_dbReceita.resx">
+      <DependentUpon>201907040431523_dbReceita.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

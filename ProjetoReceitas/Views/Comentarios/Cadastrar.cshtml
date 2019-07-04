@@ -1,4 +1,5 @@
-﻿@model ProjetoReceitas.Models.Comentario
+﻿@using ProjetoReceitas.Models
+@model ProjetoReceitas.Models.Comentario
 
 @{
     ViewBag.Title = "Comentario";
@@ -99,5 +100,5 @@
     </div>
 }
 <div>
-    @Html.ActionLink("Voltar", "Index", "Receitas", new { id = receita.ReceitaId })
+    @Html.ActionLink("Voltar", "Index", "Receitas")
 </div>

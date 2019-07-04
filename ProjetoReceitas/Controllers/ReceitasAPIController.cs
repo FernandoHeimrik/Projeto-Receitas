@@ -15,13 +15,13 @@ namespace ProjetoReceitas.Controllers
     {
 
         [Route("Receitas")]
-        public List<Receita> GETReceitas()
+        public List<Receita> GetReceitas()
         {
             return ReceitaDAO.RetornarReceitas();
         }
 
         [Route("Receitas/{id}")]
-        public dynamic GETBuscarReceitaPorId(int id)
+        public dynamic GetBuscarReceitaPorId(int id)
         {
             Receita receita = ReceitaDAO.BuscarReceitaPorId(id);
             if(receita != null)
@@ -32,15 +32,16 @@ namespace ProjetoReceitas.Controllers
                     TipoRefeicao = receita.TipoRefeicao,
                     NivelDificuldade = receita.NivelDificuldade,
                     TempoPreparo = receita.TempoPreparo,
-                    ModoDePreparo = receita.ModoDePreparo
+                    ModoDePreparo = receita.ModoDePreparo,
+                    Ingredientes = receita.Ingredientes
                 };
                 return objeto;
             }
             return NotFound();
         }
 
-        [Route("CadastrarReceita")]
-        public IHttpActionResult POSTCadastrarReceita(Receita receita)
+        [Route("Cadastrar")]
+        public IHttpActionResult PostCadastrarReceita(Receita receita)
         {
             if(ModelState.IsValid || receita == null)
             {
@@ -53,7 +54,21 @@ namespace ProjetoReceitas.Controllers
             {
                 return Created("", receita);
             }
-            return Conflict();
+            return NotFound();
+        }
+
+        [Route("Receita/{id}")]
+        public IHttpActionResult DeleteReceita(int id)
+        {
+            Receita receita = ReceitaDAO.BuscarReceitaPorId(id);
+            if (receita == null)
+            {
+                return NotFound();
+            }
+
+            ReceitaDAO.RemoverReceita(receita);
+
+            return Ok(receita);
         }
     }
 }

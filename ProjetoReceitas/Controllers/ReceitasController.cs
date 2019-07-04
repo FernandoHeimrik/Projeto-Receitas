@@ -93,13 +93,31 @@ namespace ProjetoReceitas.Controllers
         }
         public ActionResult Editar(int? id)
         {
+            ViewBag.TiposRefeicoes = new SelectList(TipoRefeicaoDAO.RetornarTiposRefeicoes(), "TipoRefeicaoId", "Nome");
+            ViewBag.NiveisDificuldades = new SelectList(NivelDificuldadeDAO.RetornarNiveisDificuldades(), "DificuldadeId", "Nome");
+            ViewBag.ItemIngrediente = ItemIngredienteReceitaDAO.RetornarItemIngrediente();
+
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
             Receita receita = ReceitaDAO.BuscarReceitaPorId(id);
+            
+            if (receita == null)
+            {
+                return HttpNotFound();
+            }
             return View(receita);
+
         }
 
         [HttpPost]
         public ActionResult Editar(Receita receita)
         {
+            ViewBag.TiposRefeicoes = new SelectList(TipoRefeicaoDAO.RetornarTiposRefeicoes(), "TipoRefeicaoId", "Nome");
+            ViewBag.NiveisDificuldades = new SelectList(NivelDificuldadeDAO.RetornarNiveisDificuldades(), "DificuldadeId", "Nome");
+            ViewBag.ItemIngrediente = ItemIngredienteReceitaDAO.RetornarItemIngrediente();
+
             if (ModelState.IsValid)
             {
                 Receita aux = ReceitaDAO.BuscarReceitaPorId(receita.ReceitaId);
@@ -107,6 +125,7 @@ namespace ProjetoReceitas.Controllers
                 aux.TipoRefeicao = receita.TipoRefeicao;
                 aux.NivelDificuldade = receita.NivelDificuldade;
                 aux.TempoPreparo = receita.TempoPreparo;
+                aux.Ingredientes = receita.Ingredientes;
                 
 
                 ReceitaDAO.AlterarReceita(receita);

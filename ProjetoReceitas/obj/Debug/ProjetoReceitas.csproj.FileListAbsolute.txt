@@ -131,5 +131,6 @@ D:\Projetos\visual studio 2015\ProjetoReceitas\ProjetoReceitas\obj\Debug\Projeto
 D:\Projetos\visual studio 2015\ProjetoReceitas\ProjetoReceitas\obj\Debug\ProjetoReceitas.Migrations.addComentarioAttusuario.resources
 C:\Users\Fernando\Documents\Visual Studio 2015\receita\Projeto-Receitas\ProjetoReceitas\bin\RestSharp.dll
 C:\Users\Fernando\Documents\Visual Studio 2015\receita\Projeto-Receitas\ProjetoReceitas\bin\RestSharp.xml
-C:\Users\Fernando\Documents\Visual Studio 2015\receita\Projeto-Receitas\ProjetoReceitas\obj\Debug\ProjetoReceitas.Migrations.mealApi.resources
+C:\Users\Fernando\Documents\Visual Studio 2015\receita\Projeto-Receitas\ProjetoReceitas\obj\Debug\ProjetoReceitas.Migrations.dbReceita.resources
 C:\Users\Fernando\Documents\Visual Studio 2015\receita\Projeto-Receitas\ProjetoReceitas\obj\Debug\ProjetoReceitas.csproj.GenerateResource.Cache
+C:\Users\Fernando\Documents\Visual Studio 2015\receita\Projeto-Receitas\ProjetoReceitas\obj\Debug\ProjetoReceitas.csprojResolveAssemblyReference.cache
