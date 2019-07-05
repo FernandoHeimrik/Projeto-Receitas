@@ -34,7 +34,7 @@ namespace ProjetoReceitas.Controllers
             {
                 if (PerfilDAO.CadastrarPerfilUsuario(p))
                 {
-                    return RedirectToAction("Index", "Perfis");
+                    return RedirectToAction("Login", "Perfis");
                 }
                 ModelState.AddModelError("", "Email já cadastrado!");
                 return View(p);
@@ -54,7 +54,7 @@ namespace ProjetoReceitas.Controllers
             if (p != null)
             {
                 FormsAuthentication.SetAuthCookie(p.Email, true);
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Index", "Receitas");
             }
             ModelState.AddModelError("", "E-mail ou senha inválido!");
             return View(p);
@@ -64,6 +64,21 @@ namespace ProjetoReceitas.Controllers
         {
             FormsAuthentication.SignOut();
             return RedirectToAction("Index", "Home");
+        }
+
+        public ActionResult AlterarSenha(int id)
+        {
+            Perfil perfil = PerfilDAO.BuscarPerfilPorId(id);
+            if (ModelState.IsValid)
+            {
+                if (perfil != null)
+                {
+                    PerfilDAO.AlterarSenha(perfil);
+                    return RedirectToAction("Login", "Perfis");
+                }
+                return View(perfil);
+            }
+            return View(perfil);
         }
     }
 }

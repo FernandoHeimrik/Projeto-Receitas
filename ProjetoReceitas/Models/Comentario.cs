@@ -14,7 +14,7 @@ namespace ProjetoReceitas.Models
         public int ComentarioId { get; set; }
 
         [Required(ErrorMessage = "Campo obrigatório!")]
-        [MinLength(5, ErrorMessage = " No mínimo 3 caracteres")]
+        [MinLength(3, ErrorMessage = " No mínimo 3 caracteres")]
         [MaxLength(200, ErrorMessage = " No máximo 200 caracteres")]
         [Display(Name = "Comentário")]
         public string Descricao { get; set; }

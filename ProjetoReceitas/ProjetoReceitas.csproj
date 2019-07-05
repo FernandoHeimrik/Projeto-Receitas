@@ -226,14 +226,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201907040431523_dbReceita.cs" />
-    <Compile Include="Migrations\201907040431523_dbReceita.Designer.cs">
-      <DependentUpon>201907040431523_dbReceita.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Comentario.cs" />
     <Compile Include="Models\Context.cs" />
-    <Compile Include="Models\Enums\TipoPerfil.cs" />
     <Compile Include="Models\Ingrediente.cs" />
     <Compile Include="Models\ItemIngredienteReceita.cs" />
     <Compile Include="Models\Meal.cs" />
@@ -281,11 +276,10 @@
     <Content Include="Views\Comentarios\Cadastrar.cshtml" />
     <Content Include="Views\Comentarios\Edit.cshtml" />
     <Content Include="Views\AdcIngrediente\AdicionarIngredientes.cshtml" />
-    <Content Include="Views\Meals\Create.cshtml" />
-    <Content Include="Views\Meals\Delete.cshtml" />
+    <Content Include="Views\Meals\Cadastrar.cshtml" />
     <Content Include="Views\Meals\Details.cshtml" />
-    <Content Include="Views\Meals\Edit.cshtml" />
     <Content Include="Views\Meals\Index.cshtml" />
+    <Content Include="Views\Perfis\AlterarSenha.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -302,11 +296,6 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="scripts\index.d.ts" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201907040431523_dbReceita.resx">
-      <DependentUpon>201907040431523_dbReceita.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

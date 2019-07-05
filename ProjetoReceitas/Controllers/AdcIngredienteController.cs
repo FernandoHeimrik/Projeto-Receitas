@@ -11,14 +11,18 @@ namespace ProjetoReceitas.DAL
     public class AdcIngredienteController : Controller
     {
         // GET: AdcIngrediente
-        public ActionResult Index()
+        public ActionResult Index(int? id)
         {
-            return View();
+            ViewBag.Ingredientes = IngredienteDAO.RetornarIngredientes();
+            if(id == null)
+            {
+                return View(IngredienteDAO.RetornarIngredientes());
+            }
+            return View(IngredienteDAO.BuscarIngredientePorId(id));
         }
 
         public ActionResult AdicionarIngredientes(int? id)
         {
-
             ViewBag.Ingredientes = new SelectList(IngredienteDAO.RetornarIngredientes(), "IngredienteId", "Nome");
             return View();
         }
@@ -29,8 +33,16 @@ namespace ProjetoReceitas.DAL
 
             ViewBag.Ingredientes = new SelectList(IngredienteDAO.RetornarIngredientes(), "IngredienteId", "Nome");
 
-            itemIngrediente.Ingrediente = IngredienteDAO.BuscarIngredientePorId(Ingredientes);
-            itemIngrediente.SessaoReceitaId = Sessao.RetornarItemReceitaId();
+            Ingrediente ingrediente = IngredienteDAO.BuscarIngredientePorId(Ingredientes);
+
+            itemIngrediente = new ItemIngredienteReceita
+            {
+                Ingrediente = ingrediente,
+                Quantidade = itemIngrediente.Quantidade,
+                UnidadeMedida = itemIngrediente.UnidadeMedida,
+                SessaoReceitaId = Sessao.RetornarItemReceitaId()
+            };
+            
             ItemIngredienteReceitaDAO.CadastrarItemIngrediente(itemIngrediente);
 
             return RedirectToAction("AdicionarIngredientes", "AdcIngrediente");

@@ -14,7 +14,7 @@ namespace ProjetoReceitas.Models
         public int ItemIngredienteReceitaId { get; set; }
 
         [Display(Name = "Ingrediente")]
-        public Ingrediente Ingrediente { get; set; }
+        public virtual Ingrediente Ingrediente { get; set; }
 
         
         public int Quantidade { get; set; }

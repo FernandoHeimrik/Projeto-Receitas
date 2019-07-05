@@ -17,7 +17,6 @@ namespace ProjetoReceitas.Models
         [Display(Name = "Ingrediente")]
         public string Nome { get; set; }
 
-        public List<ItemIngredienteReceita> ItensIngredientes { get; set; }
-        public List<Receita> Receitas { get; set; }
+        public virtual List<Receita> Receitas { get; set; }
     }
 }

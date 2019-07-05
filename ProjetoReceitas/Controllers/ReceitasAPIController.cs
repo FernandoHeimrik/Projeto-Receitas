@@ -43,12 +43,11 @@ namespace ProjetoReceitas.Controllers
         [Route("Cadastrar")]
         public IHttpActionResult PostCadastrarReceita(Receita receita)
         {
-            if(ModelState.IsValid || receita == null)
+            if(!ModelState.IsValid || receita == null)
             {
                 return BadRequest(ModelState);
             }
-            receita.TipoRefeicao = TipoRefeicaoDAO.BuscarTipoRefeicaoPorId(receita.TipoRefeicao.TipoRefeicaoId);
-            receita.NivelDificuldade = NivelDificuldadeDAO.BuscarNivelDificuldadePorId(receita.NivelDificuldade.DificuldadeId);
+            
            
             if (ReceitaDAO.CadastrarReceita(receita))
             {
@@ -69,6 +68,26 @@ namespace ProjetoReceitas.Controllers
             ReceitaDAO.RemoverReceita(receita);
 
             return Ok(receita);
+        }
+
+        [Route("Receita/{id}")]
+        public IHttpActionResult PutAlterarReceita(int id, Receita receita)
+        {
+            Receita r = ReceitaDAO.BuscarReceitaPorId(id);
+            
+            if (r == null)
+            {
+                return BadRequest();
+            }
+            r.Titulo = receita.Titulo;
+            r.TipoRefeicao = receita.TipoRefeicao;
+            r.NivelDificuldade = receita.NivelDificuldade;
+            r.ModoDePreparo = receita.ModoDePreparo;
+            r.TempoPreparo = receita.TempoPreparo;
+            r.Ingredientes = receita.Ingredientes;
+            r.Usuario = receita.Usuario;
+            ReceitaDAO.AlterarReceita(r);
+            return Ok(r);
         }
     }
 }

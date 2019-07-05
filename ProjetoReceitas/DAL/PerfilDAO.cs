@@ -38,5 +38,25 @@ namespace ProjetoReceitas.DAL
             return ctx.Perfis.FirstOrDefault(x => x.Email.Equals(p.Email) && x.Senha.Equals(p.Senha));
         }
 
+        public static Perfil VerificarSenha(Perfil p)
+        {   
+           return ctx.Perfis.FirstOrDefault(x => x.Senha.Equals(p.Senha));
+        }
+
+        public static Perfil BuscarPerfilPorId(int id)
+        {
+            return ctx.Perfis.Find(id);
+        }
+
+        public static bool AlterarSenha(Perfil p)
+        {
+            if(VerificarSenha(p) != null)
+            {
+                ctx.Entry(p).State = System.Data.Entity.EntityState.Modified;
+                ctx.SaveChanges();
+                return true;
+            }
+            return false;
+        }
     }
 }

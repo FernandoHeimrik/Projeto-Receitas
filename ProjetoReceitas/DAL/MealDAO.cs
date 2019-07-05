@@ -12,13 +12,22 @@ namespace ProjetoReceitas.DAL
 
         public static bool CadastrarMealApi(Meal meal)
         {
-            if(BuscarMealPorTitulo(meal) == null)
+            try
             {
-                ctx.Meals.Add(meal);
-                ctx.SaveChanges();
-                return true;
+                if (BuscarMealPorTitulo(meal) == null)
+                {
+                    ctx.Meals.Add(meal);
+                    ctx.SaveChanges();
+                    return true;
+                }
+                return false;
             }
-            return false;
+            catch (Exception)
+            {
+
+                return false;
+            }
+            
         }
 
         public static Meal BuscarMealPorTitulo(Meal meal)

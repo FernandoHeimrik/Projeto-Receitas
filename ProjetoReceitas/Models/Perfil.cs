@@ -1,5 +1,4 @@
-﻿using ProjetoReceitas.Models.Enums;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -17,10 +16,6 @@ namespace ProjetoReceitas.Models
         }
         [Key]
         public int PerfilId { get; set; }
-
-        [Required(ErrorMessage = "Campo obrigatório!")]
-        [Display(Name = "Nome")]
-        public string Nome { get; set; }
 
         [Required(ErrorMessage = "Campo obrigatório!")]
         [Display(Name = "E-mail")]
@@ -44,7 +39,6 @@ namespace ProjetoReceitas.Models
         [Display(Name = "Data de Criação")]
         public DateTime DataCriacao { get; set; }
 
-        public TipoPerfil Tipo { get; set; }
         //public List<Receita> Receitas { get; set; }
     }
 }

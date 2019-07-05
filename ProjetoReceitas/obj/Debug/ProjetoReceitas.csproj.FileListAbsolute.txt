@@ -133,4 +133,7 @@ C:\Users\Fernando\Documents\Visual Studio 2015\receita\Projeto-Receitas\ProjetoR
 C:\Users\Fernando\Documents\Visual Studio 2015\receita\Projeto-Receitas\ProjetoReceitas\bin\RestSharp.xml
 C:\Users\Fernando\Documents\Visual Studio 2015\receita\Projeto-Receitas\ProjetoReceitas\obj\Debug\ProjetoReceitas.Migrations.dbReceita.resources
 C:\Users\Fernando\Documents\Visual Studio 2015\receita\Projeto-Receitas\ProjetoReceitas\obj\Debug\ProjetoReceitas.csproj.GenerateResource.Cache
-C:\Users\Fernando\Documents\Visual Studio 2015\receita\Projeto-Receitas\ProjetoReceitas\obj\Debug\ProjetoReceitas.csprojResolveAssemblyReference.cache
+C:\Users\Fernando\Documents\Visual Studio 2015\receita\Projeto-Receitas\ProjetoReceitas\obj\Debug\ProjetoReceitas.Migrations._virtual.resources
+C:\Users\Fernando\Documents\Visual Studio 2015\receita\Projeto-Receitas\ProjetoReceitas\obj\Debug\ProjetoReceitas.Migrations.virtual2.resources
+C:\Users\Fernando\Documents\Visual Studio 2015\receita\Projeto-Receitas\ProjetoReceitas\obj\Debug\ProjetoReceitas.Migrations.virtual3.resources
+C:\Users\Fernando\Documents\Visual Studio 2015\receita\Projeto-Receitas\ProjetoReceitas\obj\Debug\ProjetoReceitas.Migrations.virtual1.resources

@@ -9,6 +9,7 @@ using System.Web.Mvc;
 using ProjetoReceitas.Models;
 using ProjetoReceitas.DAL;
 using ProjetoReceitas.Utils;
+using System.Text;
 
 namespace ProjetoReceitas.Controllers
 {
@@ -33,7 +34,7 @@ namespace ProjetoReceitas.Controllers
             ViewBag.TiposRefeicoes = new SelectList(TipoRefeicaoDAO.RetornarTiposRefeicoes(), "TipoRefeicaoId", "Nome");
             ViewBag.NiveisDificuldades = new SelectList(NivelDificuldadeDAO.RetornarNiveisDificuldades(), "DificuldadeId", "Nome");
             ViewBag.ItemIngrediente = ItemIngredienteReceitaDAO.RetornarItemIngrediente();
-  
+
             return View();
         }
 
@@ -51,16 +52,17 @@ namespace ProjetoReceitas.Controllers
                 if (Request.IsAuthenticated)
                 {
                     receita.Usuario = ViewBag.Usuario;
-                }else
+                }
+                else
                 {
                     receita.Usuario = "Desconhecido";
                 }
-                
+
                 receita.SessaoReceitaId = Sessao.RetornarItemReceitaId();
                 receita.NivelDificuldade = NivelDificuldadeDAO.BuscarNivelDificuldadePorId(NiveisDificuldades);
                 receita.TipoRefeicao = TipoRefeicaoDAO.BuscarTipoRefeicaoPorId(TiposRefeicoes);
                 receita.Ingredientes = ItemIngredienteReceitaDAO.RetornarItemIngrediente();
-                if(fupImagem != null)
+                if (fupImagem != null)
                 {
                     try
                     {
@@ -72,8 +74,9 @@ namespace ProjetoReceitas.Controllers
                     {
                         receita.Imagem = "semimagem.jpeg";
                     }
-                    
-                }else
+
+                }
+                else
                 {
                     receita.Imagem = "semimagem.jpeg";
                 }
@@ -102,7 +105,7 @@ namespace ProjetoReceitas.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Receita receita = ReceitaDAO.BuscarReceitaPorId(id);
-            
+
             if (receita == null)
             {
                 return HttpNotFound();
@@ -114,44 +117,21 @@ namespace ProjetoReceitas.Controllers
         [HttpPost]
         public ActionResult Editar(Receita receita)
         {
+
             ViewBag.TiposRefeicoes = new SelectList(TipoRefeicaoDAO.RetornarTiposRefeicoes(), "TipoRefeicaoId", "Nome");
             ViewBag.NiveisDificuldades = new SelectList(NivelDificuldadeDAO.RetornarNiveisDificuldades(), "DificuldadeId", "Nome");
             ViewBag.ItemIngrediente = ItemIngredienteReceitaDAO.RetornarItemIngrediente();
 
-            if (ModelState.IsValid)
-            {
-                Receita aux = ReceitaDAO.BuscarReceitaPorId(receita.ReceitaId);
-                aux.Titulo = receita.Titulo;
-                aux.TipoRefeicao = receita.TipoRefeicao;
-                aux.NivelDificuldade = receita.NivelDificuldade;
-                aux.TempoPreparo = receita.TempoPreparo;
-                aux.Ingredientes = receita.Ingredientes;
-                
+            Receita aux = ReceitaDAO.BuscarReceitaPorId(receita.ReceitaId);
+            aux.Titulo = receita.Titulo;
+            aux.TipoRefeicao = receita.TipoRefeicao;
+            aux.NivelDificuldade = receita.NivelDificuldade;
+            aux.TempoPreparo = receita.TempoPreparo;
+            aux.Ingredientes = receita.Ingredientes;
 
-                ReceitaDAO.AlterarReceita(receita);
-                return RedirectToAction("Index", "Receitas");
-            }
-            return View(receita);
-        }
+            ReceitaDAO.AlterarReceita(aux);
 
-        public ActionResult AdicionarIngredientes(int? id)
-        {
-
-            ViewBag.Ingredientes = new SelectList(IngredienteDAO.RetornarIngredientes(), "IngredienteId", "Nome");
-            return View();
-        }
-
-        [HttpPost]
-        public ActionResult AdicionarIngredientes(ItemIngredienteReceita itemIngrediente, int? Ingredientes)
-        {
-            
-            ViewBag.Ingredientes = new SelectList(IngredienteDAO.RetornarIngredientes(), "IngredienteId", "Nome");
-
-            itemIngrediente.Ingrediente = IngredienteDAO.BuscarIngredientePorId(Ingredientes);
-            itemIngrediente.SessaoReceitaId = Sessao.RetornarItemReceitaId();
-            ItemIngredienteReceitaDAO.CadastrarItemIngrediente(itemIngrediente);
-
-            return RedirectToAction("AdicionarIngredientes", "Receitas");
+            return RedirectToAction("Index", "Receitas");
         }
 
         public ActionResult Remover(int? id)

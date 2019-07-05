@@ -65,5 +65,18 @@ namespace ProjetoReceitas.Controllers
 
             return Ok(ingrediente);
         }
+
+        [Route("Ingrediente/{id}")]
+        public IHttpActionResult PutAlterarIngrediente(int id, Ingrediente ingrediente)
+        {
+            Ingrediente i = IngredienteDAO.BuscarIngredientePorId(id);
+            if (i == null)
+            {
+                return BadRequest();
+            }
+            i.Nome = ingrediente.Nome;
+            IngredienteDAO.AlterarIngrediente(i);
+            return Ok(i);
+        }
     }
 }
